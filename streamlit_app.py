@@ -4,15 +4,18 @@ import streamlit as st
 
 # Configure page layout
 st.set_page_config(
-    page_title="BNZ Joint Billing Dashboard (Advanced Filtering)",
+    page_title="BNZ Joint Billing Dashboard (Jan-Sep 2026)",
     page_icon="📊",
     layout="wide",
 )
 
-st.title("📊 BNZ Joint Billing Account - Advanced Drill-Down Dashboard")
+st.title(
+    "📊 BNZ Joint Billing Account (02-0316-0685464-000) — Jan to Sep 2026"
+)
 st.markdown(
-    "Itemized transaction tracking from January to September 2026, with fast"
-    " multi-month filtering for specific policy particulars and bills."
+    "Comprehensive itemized transaction tracking sourced from your **BNZ Joint"
+    " Billing Account**, covering January through September 2026, broken down"
+    " by category, sub-category, and payment type."
 )
 
 # Sidebar File Uploader & Filters
@@ -32,7 +35,7 @@ if uploaded_file is not None:
     st.sidebar.error(f"Error reading file: {e}")
     df = None
 else:
-  # Extended sample dataset covering January to September 2026
+  # Extended sample dataset covering January to September 2026 for Joint Billing Account
   data = {
       "Date": [
           # January 2026
@@ -161,6 +164,7 @@ else:
           "September",
           "September",
       ],
+      "Account Source": ["BNZ Joint Billing Account"] * 56,
       "Category": [
           "Insurance",
           "Housing",
@@ -458,7 +462,9 @@ else:
       ],
   }
   df = pd.DataFrame(data)
-  st.sidebar.info("Loaded January–September 2026 dataset.")
+  st.sidebar.info(
+      "Loaded Joint Billing Account dataset (Jan–Sep 2026 statement records)."
+  )
 
 # Sort month order cleanly
 month_order = [
@@ -569,7 +575,6 @@ with tab1:
         )
         st.plotly_chart(fig_bar, use_container_width=True)
     else:
-      # Show trend across months for the specific focused particular
       item_trend = (
           df_outflows.groupby(["Month", "Particulars"])["Amount"]
           .sum()
@@ -585,7 +590,7 @@ with tab1:
       st.plotly_chart(fig_bar, use_container_width=True)
 
 with tab2:
-  st.subheader("Statement Itemized Log")
+  st.subheader("Statement Itemized Log (Joint Billing Account)")
   st.dataframe(df_filtered, use_container_width=True)
 
 with tab3:
