@@ -4,19 +4,19 @@ import streamlit as st
 
 # Configure page layout
 st.set_page_config(
-    page_title="BNZ Joint Billing Dashboard (Jan-Sep 2026)",
+    page_title="BNZ Joint Billing Dashboard (Monthly Breakdown)",
     page_icon="📊",
     layout="wide",
 )
 
-st.title("📊 BNZ Joint Billing Account - Jan to Sep 2026 Analytics")
+st.title("📊 BNZ Joint Billing Account - Monthly Drill-Down Dashboard")
 st.markdown(
-    "Comprehensive itemized transaction tracking covering January through"
-    " September 2026, broken down by category, sub-category, and payment type."
+    "Itemized transaction tracking from January to September 2026, broken down"
+    " month-by-month by category, sub-category, and payment type."
 )
 
-# Sidebar File Uploader
-st.sidebar.header("📁 Data Source")
+# Sidebar File Uploader & Month Selector
+st.sidebar.header("📁 Data Source & Filters")
 uploaded_file = st.sidebar.file_uploader(
     "Upload CSV or Excel Statement", type=["csv", "xlsx"]
 )
@@ -432,7 +432,7 @@ else:
           25.00,
           59.75,
           72.25,
-          30851.24,  # June lump-sum example spike
+          30851.24,
           52.09,
           -1116.87,
           6145.24,
@@ -458,10 +458,7 @@ else:
       ],
   }
   df = pd.DataFrame(data)
-  st.sidebar.info("Loaded January–September 2026 sample statement dataset.")
-
-# Filter out income for outflow summaries
-df_outflows = df[df["Category"] != "Income"]
+  st.sidebar.info("Loaded January–September 2026 dataset.")
 
 # Sort month order cleanly
 month_order = [
@@ -475,25 +472,40 @@ month_order = [
     "August",
     "September",
 ]
-df_outflows["Month"] = pd.Categorical(
-    df_outflows["Month"], categories=month_order, ordered=True
-)
 df["Month"] = pd.Categorical(
     df["Month"], categories=month_order, ordered=True
 )
-df_outflows = df_outflows.sort_values("Month")
 df = df.sort_values("Month")
+
+# Sidebar Month Selector
+st.sidebar.markdown("---")
+selected_month = st.sidebar.selectbox(
+    "Select Month to View:", ["All Months (Overview)"] + month_order
+)
+
+# Filter dataframe based on sidebar selection
+if selected_month != "All Months (Overview)":
+  df_filtered = df[df["Month"] == selected_month]
+  st.subheader(f"📅 Detailed Breakdown for {selected_month} 2026")
+else:
+  df_filtered = df
+  st.subheader("📅 Detailed Breakdown Across All Months (Jan - Sep 2026)")
+
+# Separate outflows for expense metrics
+df_outflows = df_filtered[df_filtered["Category"] != "Income"]
 
 # Create Multi-Tabs
 tab1, tab2, tab3, tab4 = st.tabs([
     "📈 Visual Analytics",
     "📋 Detailed Ledger",
-    "🏷️ Sub-Category Breakdown",
+    "🏷️ Sub-Category & Payment Breakdown",
     "🔍 Search & Filter",
 ])
 
 with tab1:
-  st.subheader("Outflow Proportions & Monthly Trends (Jan - Sep 2026)")
+  st.subheader(
+      f"Outflow Proportions — {selected_month if selected_month != 'All Months (Overview)' else 'Jan - Sep 2026'}"
+  )
   col1, col2 = st.columns(2)
 
   with col1:
@@ -508,28 +520,45 @@ with tab1:
     st.plotly_chart(fig_donut, use_container_width=True)
 
   with col2:
-    monthly_summary = (
-        df_outflows.groupby("Month", observed=False)["Amount"]
-        .sum()
-        .reset_index()
-    )
-    fig_bar = px.bar(
-        monthly_summary,
-        x="Month",
-        y="Amount",
-        title="Total Outflows by Month (Jan - Sep)",
-        text_auto="$",
-    )
-    st.plotly_chart(fig_bar, use_container_width=True)
+    if selected_month == "All Months (Overview)":
+      monthly_summary = (
+          df_outflows.groupby("Month", observed=False)["Amount"]
+          .sum()
+          .reset_index()
+      )
+      fig_bar = px.bar(
+          monthly_summary,
+          x="Month",
+          y="Amount",
+          title="Total Outflows by Month",
+          text_auto="$",
+      )
+      st.plotly_chart(fig_bar, use_container_width=True)
+    else:
+      sub_cat_summary = (
+          df_outflows.groupby("Sub-Category")["Amount"].sum().reset_index()
+      )
+      fig_bar = px.bar(
+          sub_cat_summary,
+          x="Sub-Category",
+          y="Amount",
+          title=f"Outflows by Sub-Category ({selected_month})",
+          text_auto="$",
+      )
+      st.plotly_chart(fig_bar, use_container_width=True)
 
 with tab2:
-  st.subheader("Complete Statement Itemized Log (Jan - Sep)")
-  st.dataframe(df, use_container_width=True)
+  st.subheader(
+      f"Statement Itemized Log — {selected_month if selected_month != 'All Months (Overview)' else 'Jan - Sep 2026'}"
+  )
+  st.dataframe(df_filtered, use_container_width=True)
 
 with tab3:
-  st.subheader("Drill-Down by Sub-Category & Payment Type")
+  st.subheader(
+      f"Drill-Down by Sub-Category & Payment Type ({selected_month})"
+  )
   sub_summary = (
-      df_outflows.groupby(["Category", "Sub-Category", "Payment Type"])[
+      df_outflows.groupby(["Month", "Category", "Sub-Category", "Payment Type"])[
           "Amount"
       ]
       .sum()
@@ -542,7 +571,7 @@ with tab3:
       x="Sub-Category",
       y="Amount",
       color="Category",
-      title="Expenses by Sub-Category",
+      title=f"Expenses Drill-Down — {selected_month}",
       text_auto="$",
   )
   st.plotly_chart(fig_sub, use_container_width=True)
@@ -554,12 +583,12 @@ with tab4:
   )
 
   if search_term:
-    text_cols = df.select_dtypes(include=["object"]).columns
-    mask = df[text_cols].apply(
+    text_cols = df_filtered.select_dtypes(include=["object"]).columns
+    mask = df_filtered[text_cols].apply(
         lambda col: col.str.contains(search_term, case=False, na=False)
     ).any(axis=1)
-    filtered_results = df[mask]
+    filtered_results = df_filtered[mask]
     st.write(f"Found {len(filtered_results)} matching transactions:")
     st.dataframe(filtered_results, use_container_width=True)
   else:
-    st.info("Type a keyword above to look up specific items across Jan–Sep.")
+    st.info("Type a keyword above to look up specific items.")
