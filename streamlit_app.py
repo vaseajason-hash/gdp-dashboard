@@ -1,187 +1,130 @@
 import pandas as pd
 import streamlit as st
 
-# Configure page
+# Configure page layout
 st.set_page_config(
-    page_title="Personal Expense Dashboard", page_icon="💰", layout="wide"
+    page_title="Detailed Expense Dashboard", page_icon="📊", layout="wide"
 )
 
-st.title("📊 Interactive Expense & Budget Dashboard")
+st.title("📊 Detailed Financial & Expense Tracking Dashboard")
 st.markdown(
-    "Explore your monthly expenses, category breakdowns, and visual data bars."
+    "Explore itemized transactions, filter by specific particulars, and"
+    " analyze spending patterns."
 )
 
-# Sample dataset representing your monthly totals by category
+# Expanded itemized dataset (sample structure for individual transactions)
 data = {
+    "Date": [
+        "2026-01-05",
+        "2026-01-07",
+        "2026-01-10",
+        "2026-01-15",
+        "2026-02-04",
+        "2026-02-08",
+        "2026-02-12",
+        "2026-03-03",
+        "2026-03-09",
+        "2026-04-02",
+        "2026-05-04",
+        "2026-06-03",
+        "2026-07-06",
+        "2026-08-04",
+    ],
     "Month": [
         "January",
         "January",
         "January",
         "January",
-        "January",
-        "February",
-        "February",
         "February",
         "February",
         "February",
         "March",
         "March",
-        "March",
-        "March",
-        "March",
-        "April",
-        "April",
-        "April",
-        "April",
         "April",
         "May",
-        "May",
-        "May",
-        "May",
-        "May",
-        "June",
-        "June",
-        "June",
-        "June",
         "June",
         "July",
-        "July",
-        "July",
-        "July",
-        "July",
-        "August",
-        "August",
-        "August",
-        "August",
         "August",
     ],
     "Category": [
-        "Housing Loans & Rates",
+        "Housing Loans",
         "Insurance",
-        "Utilities & Broadband",
-        "Subscriptions",
-        "General / Food / Fuel",
-        "Housing Loans & Rates",
+        "Utilities",
+        "General / Food",
+        "Housing Loans",
         "Insurance",
-        "Utilities & Broadband",
-        "Subscriptions",
-        "General / Food / Fuel",
-        "Housing Loans & Rates",
-        "Insurance",
-        "Utilities & Broadband",
-        "Subscriptions",
-        "General / Food / Fuel",
-        "Housing Loans & Rates",
-        "Insurance",
-        "Utilities & Broadband",
-        "Subscriptions",
-        "General / Food / Fuel",
-        "Housing Loans & Rates",
-        "Insurance",
-        "Utilities & Broadband",
-        "Subscriptions",
-        "General / Food / Fuel",
-        "Housing Loans & Rates",
-        "Insurance",
-        "Utilities & Broadband",
-        "Subscriptions",
-        "General / Food / Fuel",
-        "Housing Loans & Rates",
-        "Insurance",
-        "Utilities & Broadband",
-        "Subscriptions",
-        "General / Food / Fuel",
-        "Housing Loans & Rates",
-        "Insurance",
-        "Utilities & Broadband",
-        "Subscriptions",
-        "General / Food / Fuel",
+        "General / Food",
+        "Housing Loans",
+        "Utilities",
+        "Housing Loans",
+        "Housing Loans",
+        "Housing Loans (Extra)",
+        "Housing Loans",
+        "Housing Loans",
+    ],
+    "Particulars": [
+        "Loan Account 0003",
+        "Partners Life",
+        "Powershop NZ",
+        "Whang Thai 2",
+        "Loan Account 0003",
+        "Tower Insurance",
+        "Grocery Store",
+        "Loan Account 0003",
+        "Powershop NZ",
+        "Loan Account 0003",
+        "Loan Account 0003",
+        "Lump-Sum Principal",
+        "Loan Account 0003",
+        "Loan Account 0003",
     ],
     "Amount": [
         6145.24,
         612.38,
         175.00,
-        58.82,
-        7492.84,  # Jan
+        7492.84,
         6145.24,
         612.38,
-        175.00,
-        34.33,
-        6707.92,  # Feb
+        6707.92,
         6145.24,
-        530.43,
         175.00,
-        28.75,
-        4931.81,  # Mar
         6145.24,
-        612.38,
-        175.00,
-        32.98,
-        4886.77,  # Apr
         6145.24,
-        612.38,
-        175.00,
-        32.98,
-        5831.27,  # May
         30851.24,
-        612.38,
-        175.00,
-        40.90,
-        4309.37,  # Jun (incl. principal)
         6145.24,
-        636.38,
-        175.00,
-        34.94,
-        5084.07,  # Jul
         6145.24,
-        636.38,
-        175.00,
-        42.99,
-        5246.96,  # Aug
     ],
 }
 
 df = pd.DataFrame(data)
 
-# Sidebar Filters
-st.sidebar.header("Filter Options")
-selected_month = st.sidebar.selectbox(
-    "Select Month", ["All"] + list(df["Month"].unique())
-)
-selected_category = st.sidebar.selectbox(
-    "Select Category", ["All"] + list(df["Category"].unique())
+# Create Multi-Tabs
+tab1, tab2, tab3 = st.tabs(
+    ["📋 Itemized Transactions", "📈 Category Breakdown", "🔍 Search & Filter"]
 )
 
-# Apply Filters
-filtered_df = df.copy()
-if selected_month != "All":
-    filtered_df = filtered_df[filtered_df["Month"] == selected_month]
-if selected_category != "All":
-    filtered_df = filtered_df[filtered_df["Category"] == selected_category]
+with tab1:
+    st.subheader("Complete Itemized Log")
+    st.dataframe(df, use_container_width=True)
 
-# Main Dashboard View
-col1, col2 = st.columns(2)
-with col1:
-    total_spent = filtered_df["Amount"].sum()
-    st.metric(
-        label="Total Outflows (Filtered)", value=f"${total_spent:,.2f}"
+with tab2:
+    st.subheader("Spending by Category")
+    category_summary = df.groupby("Category")["Amount"].sum().reset_index()
+    st.dataframe(category_summary, use_container_width=True)
+    st.bar_chart(category_summary.set_index("Category")["Amount"])
+
+with tab3:
+    st.subheader("Advanced Search")
+    search_term = st.text_input(
+        "Search particulars or categories (e.g., 'Loan', 'Insurance', 'Powershop')"
     )
 
-with col2:
-    avg_spent = (
-        filtered_df["Amount"].mean() if not filtered_df.empty else 0.0
-    )
-    st.metric(label="Average per Category", value=f"${avg_spent:,.2f}")
-
-st.markdown("---")
-st.subheader("Detailed Breakdown & Visual Bars")
-
-if not filtered_df.empty:
-    # Display as a native interactive dataframe chart or table
-    st.dataframe(filtered_df, use_container_width=True)
-
-    # Optional Bar Chart visualization built right into Streamlit
-    chart_data = filtered_df.set_index("Category")["Amount"]
-    st.bar_chart(chart_data)
-else:
-    st.warning("No data matches the selected filters.")
+    if search_term:
+        filtered_results = df[
+            df["Particulars"].str.contains(search_term, case=False, na=False)
+            | df["Category"].str.contains(search_term, case=False, na=False)
+        ]
+        st.write(f"Found {len(filtered_results)} matching transactions:")
+        st.dataframe(filtered_results, use_container_width=True)
+    else:
+        st.info("Type a keyword above to filter transactions.")
