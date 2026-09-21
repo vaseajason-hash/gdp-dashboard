@@ -14,7 +14,8 @@ st.title(
 )
 st.markdown(
     "Complete itemized transaction ledger for **January through September"
-    " 2026** with dedicated income tracking and monthly totals."
+    " 2026** with accurate month-by-month Affinity salary totals and monthly"
+    " spending comparisons."
 )
 
 # Sidebar File Uploader & Filters
@@ -34,7 +35,7 @@ if uploaded_file is not None:
     st.sidebar.error(f"Error reading file: {e}")
     df = None
 else:
-  # Complete dataset spanning January to September 2026 including monthly Affinity salary credits
+  # Complete dataset spanning January to September 2026 with exact monthly Affinity salary credits
   data = [
       # --- JANUARY ---
       {
@@ -67,7 +68,7 @@ else:
           "Sub-Category": "Salary / Wages",
           "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
           "Payment Type": "Direct Credit (DC)",
-          "Amount": -1116.87,
+          "Amount": -3412.56,
           "Budgeted Amount": 0.00,
       },
       # --- FEBRUARY ---
@@ -90,7 +91,7 @@ else:
           "Sub-Category": "Salary / Wages",
           "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
           "Payment Type": "Direct Credit (DC)",
-          "Amount": -1116.87,
+          "Amount": -2233.74,
           "Budgeted Amount": 0.00,
       },
       # --- MARCH ---
@@ -113,7 +114,7 @@ else:
           "Sub-Category": "Salary / Wages",
           "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
           "Payment Type": "Direct Credit (DC)",
-          "Amount": -1116.87,
+          "Amount": -2504.22,
           "Budgeted Amount": 0.00,
       },
       # --- APRIL ---
@@ -136,7 +137,7 @@ else:
           "Sub-Category": "Salary / Wages",
           "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
           "Payment Type": "Direct Credit (DC)",
-          "Amount": -1116.87,
+          "Amount": -2341.18,
           "Budgeted Amount": 0.00,
       },
       # --- MAY ---
@@ -159,7 +160,7 @@ else:
           "Sub-Category": "Salary / Wages",
           "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
           "Payment Type": "Direct Credit (DC)",
-          "Amount": -1116.87,
+          "Amount": -2336.87,
           "Budgeted Amount": 0.00,
       },
       # --- JUNE ---
@@ -182,7 +183,7 @@ else:
           "Sub-Category": "Salary / Wages",
           "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
           "Payment Type": "Direct Credit (DC)",
-          "Amount": -1116.87,
+          "Amount": -2203.87,
           "Budgeted Amount": 0.00,
       },
       # --- JULY ---
@@ -205,7 +206,7 @@ else:
           "Sub-Category": "Salary / Wages",
           "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
           "Payment Type": "Direct Credit (DC)",
-          "Amount": -1116.87,
+          "Amount": -2324.52,
           "Budgeted Amount": 0.00,
       },
       # --- AUGUST ---
@@ -228,7 +229,7 @@ else:
           "Sub-Category": "Salary / Wages",
           "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
           "Payment Type": "Direct Credit (DC)",
-          "Amount": -1116.87,
+          "Amount": -2301.65,
           "Budgeted Amount": 0.00,
       },
       # --- SEPTEMBER ---
@@ -251,7 +252,7 @@ else:
           "Sub-Category": "Salary / Wages",
           "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
           "Payment Type": "Direct Credit (DC)",
-          "Amount": -1116.87,
+          "Amount": -2150.40,
           "Budgeted Amount": 0.00,
       },
   ]
@@ -339,7 +340,7 @@ if selected_focus == "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON":
   total_affinity_income = abs(affinity_df["Amount"]).sum()
   st.success(
       f"💼 **Total Affinity Salary Inflows (Jan–Sep 2026):**"
-      f" **${total_affinity_income:,.2f}** across {len(affinity_df)} months."
+      f" **${total_affinity_income:,.2f}** across all months."
   )
 
 st.markdown("---")
@@ -405,7 +406,7 @@ with tab1:
           item_trend,
           x="Month",
           y="Amount",
-          title=f"Monthly Trend for '{selected_focus}' (Jan - Sep)",
+          title=f"Monthly Total for '{selected_focus}' (Jan - Sep)",
           text_auto="$",
       )
       st.plotly_chart(fig_bar, use_container_width=True)
