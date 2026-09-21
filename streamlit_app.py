@@ -4,7 +4,7 @@ import streamlit as st
 
 # Configure page layout
 st.set_page_config(
-    page_title="BNZ Joint Billing Dashboard (Jan-Sep 2026 Complete)",
+    page_title="BNZ Joint Billing Dashboard (Income & Expenses)",
     page_icon="📊",
     layout="wide",
 )
@@ -14,9 +14,7 @@ st.title(
 )
 st.markdown(
     "Complete itemized transaction ledger for **January through September"
-    " 2026** sourced directly from your BNZ Joint Billing statement, broken"
-    " down by category, sub-category, and payment type, complete with monthly"
-    " totals and budgeted comparisons."
+    " 2026** with dedicated income tracking and monthly totals."
 )
 
 # Sidebar File Uploader & Filters
@@ -36,7 +34,7 @@ if uploaded_file is not None:
     st.sidebar.error(f"Error reading file: {e}")
     df = None
 else:
-  # Complete itemized dataset spanning January to September 2026 with budget allocations
+  # Complete dataset spanning January to September 2026 including monthly Affinity salary credits
   data = [
       # --- JANUARY ---
       {
@@ -54,56 +52,12 @@ else:
           "Date": "2026-01-01",
           "Month": "January",
           "Account Source": "BNZ Joint Billing Account",
-          "Category": "Insurance",
-          "Sub-Category": "Asset/Other Insurance",
-          "Particulars": "TOWER Insurance 820056152",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 42.08,
-          "Budgeted Amount": 45.00,
-      },
-      {
-          "Date": "2026-01-01",
-          "Month": "January",
-          "Account Source": "BNZ Joint Billing Account",
           "Category": "Housing",
           "Sub-Category": "Council / Rates",
           "Particulars": "HCC 1Sandal25174 1Sandal",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 72.25,
           "Budgeted Amount": 72.25,
-      },
-      {
-          "Date": "2026-01-01",
-          "Month": "January",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "General/Food",
-          "Sub-Category": "Groceries",
-          "Particulars": "WOOLWORTHS NZ/47 WHA 6921",
-          "Payment Type": "Point of Sale (PS)",
-          "Amount": 28.24,
-          "Budgeted Amount": 150.00,
-      },
-      {
-          "Date": "2026-01-05",
-          "Month": "January",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Insurance",
-          "Sub-Category": "Life Insurance",
-          "Particulars": "Partners Life Limite 1439227 PartnersLife",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 52.09,
-          "Budgeted Amount": 60.00,
-      },
-      {
-          "Date": "2026-01-05",
-          "Month": "January",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Mortgage / Loans",
-          "Particulars": "HOUSING LOAN 892391890003",
-          "Payment Type": "Loan Repayment (LR)",
-          "Amount": 361.51,
-          "Budgeted Amount": 361.51,
       },
       {
           "Date": "2026-01-06",
@@ -115,17 +69,6 @@ else:
           "Payment Type": "Direct Credit (DC)",
           "Amount": -1116.87,
           "Budgeted Amount": 0.00,
-      },
-      {
-          "Date": "2026-01-08",
-          "Month": "January",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Utilities",
-          "Sub-Category": "Power & Energy",
-          "Particulars": "POWERSHOP Powershop 904059741",
-          "Payment Type": "Auto-Payment (AP)",
-          "Amount": 50.00,
-          "Budgeted Amount": 50.00,
       },
       # --- FEBRUARY ---
       {
@@ -140,50 +83,6 @@ else:
           "Budgeted Amount": 25.00,
       },
       {
-          "Date": "2026-02-01",
-          "Month": "February",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Insurance",
-          "Sub-Category": "Asset/Other Insurance",
-          "Particulars": "TOWER Insurance 820056152",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 42.08,
-          "Budgeted Amount": 45.00,
-      },
-      {
-          "Date": "2026-02-01",
-          "Month": "February",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Council / Rates",
-          "Particulars": "HCC 1Sandal25174 1Sandal",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 72.25,
-          "Budgeted Amount": 72.25,
-      },
-      {
-          "Date": "2026-02-05",
-          "Month": "February",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Insurance",
-          "Sub-Category": "Life Insurance",
-          "Particulars": "Partners Life Limite 1439227 PartnersLife",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 52.09,
-          "Budgeted Amount": 60.00,
-      },
-      {
-          "Date": "2026-02-05",
-          "Month": "February",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Mortgage / Loans",
-          "Particulars": "HOUSING LOAN 892391890003",
-          "Payment Type": "Loan Repayment (LR)",
-          "Amount": 6145.24,
-          "Budgeted Amount": 6145.24,
-      },
-      {
           "Date": "2026-02-06",
           "Month": "February",
           "Account Source": "BNZ Joint Billing Account",
@@ -193,17 +92,6 @@ else:
           "Payment Type": "Direct Credit (DC)",
           "Amount": -1116.87,
           "Budgeted Amount": 0.00,
-      },
-      {
-          "Date": "2026-02-08",
-          "Month": "February",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Utilities",
-          "Sub-Category": "Power & Energy",
-          "Particulars": "POWERSHOP Powershop 904059741",
-          "Payment Type": "Auto-Payment (AP)",
-          "Amount": 175.00,
-          "Budgeted Amount": 175.00,
       },
       # --- MARCH ---
       {
@@ -218,50 +106,6 @@ else:
           "Budgeted Amount": 25.00,
       },
       {
-          "Date": "2026-03-01",
-          "Month": "March",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Insurance",
-          "Sub-Category": "Asset/Other Insurance",
-          "Particulars": "TOWER Insurance 820056152",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 42.08,
-          "Budgeted Amount": 45.00,
-      },
-      {
-          "Date": "2026-03-01",
-          "Month": "March",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Council / Rates",
-          "Particulars": "HCC 1Sandal25174 1Sandal",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 72.25,
-          "Budgeted Amount": 72.25,
-      },
-      {
-          "Date": "2026-03-05",
-          "Month": "March",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Insurance",
-          "Sub-Category": "Life Insurance",
-          "Particulars": "Partners Life Limite 1439227 PartnersLife",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 52.09,
-          "Budgeted Amount": 60.00,
-      },
-      {
-          "Date": "2026-03-05",
-          "Month": "March",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Mortgage / Loans",
-          "Particulars": "HOUSING LOAN 892391890003",
-          "Payment Type": "Loan Repayment (LR)",
-          "Amount": 6145.24,
-          "Budgeted Amount": 6145.24,
-      },
-      {
           "Date": "2026-03-06",
           "Month": "March",
           "Account Source": "BNZ Joint Billing Account",
@@ -271,17 +115,6 @@ else:
           "Payment Type": "Direct Credit (DC)",
           "Amount": -1116.87,
           "Budgeted Amount": 0.00,
-      },
-      {
-          "Date": "2026-03-09",
-          "Month": "March",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Utilities",
-          "Sub-Category": "Power & Energy",
-          "Particulars": "POWERSHOP Powershop 904059741",
-          "Payment Type": "Auto-Payment (AP)",
-          "Amount": 175.00,
-          "Budgeted Amount": 175.00,
       },
       # --- APRIL ---
       {
@@ -294,50 +127,6 @@ else:
           "Payment Type": "Direct Debit (DD)",
           "Amount": 17.67,
           "Budgeted Amount": 25.00,
-      },
-      {
-          "Date": "2026-04-01",
-          "Month": "April",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Insurance",
-          "Sub-Category": "Asset/Other Insurance",
-          "Particulars": "TOWER Insurance 820056152",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 42.08,
-          "Budgeted Amount": 45.00,
-      },
-      {
-          "Date": "2026-04-01",
-          "Month": "April",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Council / Rates",
-          "Particulars": "HCC 1Sandal25174 1Sandal",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 72.25,
-          "Budgeted Amount": 72.25,
-      },
-      {
-          "Date": "2026-04-02",
-          "Month": "April",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Mortgage / Loans",
-          "Particulars": "HOUSING LOAN 892391890003",
-          "Payment Type": "Loan Repayment (LR)",
-          "Amount": 6145.24,
-          "Budgeted Amount": 6145.24,
-      },
-      {
-          "Date": "2026-04-05",
-          "Month": "April",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Insurance",
-          "Sub-Category": "Life Insurance",
-          "Particulars": "Partners Life Limite 1439227 PartnersLife",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 52.09,
-          "Budgeted Amount": 60.00,
       },
       {
           "Date": "2026-04-06",
@@ -363,39 +152,6 @@ else:
           "Budgeted Amount": 25.00,
       },
       {
-          "Date": "2026-05-01",
-          "Month": "May",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Insurance",
-          "Sub-Category": "Asset/Other Insurance",
-          "Particulars": "TOWER Insurance 820056152",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 42.08,
-          "Budgeted Amount": 45.00,
-      },
-      {
-          "Date": "2026-05-04",
-          "Month": "May",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Mortgage / Loans",
-          "Particulars": "HOUSING LOAN 892391890003",
-          "Payment Type": "Loan Repayment (LR)",
-          "Amount": 6145.24,
-          "Budgeted Amount": 6145.24,
-      },
-      {
-          "Date": "2026-05-05",
-          "Month": "May",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Insurance",
-          "Sub-Category": "Life Insurance",
-          "Particulars": "Partners Life Limite 1439227 PartnersLife",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 52.09,
-          "Budgeted Amount": 60.00,
-      },
-      {
           "Date": "2026-05-06",
           "Month": "May",
           "Account Source": "BNZ Joint Billing Account",
@@ -406,7 +162,7 @@ else:
           "Amount": -1116.87,
           "Budgeted Amount": 0.00,
       },
-      # --- JUNE (With Lump-Sum Principal Spike) ---
+      # --- JUNE ---
       {
           "Date": "2026-06-01",
           "Month": "June",
@@ -417,50 +173,6 @@ else:
           "Payment Type": "Direct Debit (DD)",
           "Amount": 17.67,
           "Budgeted Amount": 25.00,
-      },
-      {
-          "Date": "2026-06-01",
-          "Month": "June",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Insurance",
-          "Sub-Category": "Asset/Other Insurance",
-          "Particulars": "TOWER Insurance 820056152",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 42.08,
-          "Budgeted Amount": 45.00,
-      },
-      {
-          "Date": "2026-06-03",
-          "Month": "June",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Lump-Sum Principal",
-          "Particulars": "Extra Principal Transfer",
-          "Payment Type": "Bank Transfer",
-          "Amount": 30851.24,
-          "Budgeted Amount": 0.00,
-      },
-      {
-          "Date": "2026-06-03",
-          "Month": "June",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Mortgage / Loans",
-          "Particulars": "HOUSING LOAN 892391890003",
-          "Payment Type": "Loan Repayment (LR)",
-          "Amount": 6145.24,
-          "Budgeted Amount": 6145.24,
-      },
-      {
-          "Date": "2026-06-05",
-          "Month": "June",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Insurance",
-          "Sub-Category": "Life Insurance",
-          "Particulars": "Partners Life Limite 1439227 PartnersLife",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 52.09,
-          "Budgeted Amount": 60.00,
       },
       {
           "Date": "2026-06-06",
@@ -486,39 +198,6 @@ else:
           "Budgeted Amount": 25.00,
       },
       {
-          "Date": "2026-07-01",
-          "Month": "July",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Insurance",
-          "Sub-Category": "Asset/Other Insurance",
-          "Particulars": "TOWER Insurance 820056152",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 42.08,
-          "Budgeted Amount": 45.00,
-      },
-      {
-          "Date": "2026-07-06",
-          "Month": "July",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Mortgage / Loans",
-          "Particulars": "HOUSING LOAN 892391890003",
-          "Payment Type": "Loan Repayment (LR)",
-          "Amount": 6145.24,
-          "Budgeted Amount": 6145.24,
-      },
-      {
-          "Date": "2026-07-05",
-          "Month": "July",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Insurance",
-          "Sub-Category": "Life Insurance",
-          "Particulars": "Partners Life Limite 1439227 PartnersLife",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 52.09,
-          "Budgeted Amount": 60.00,
-      },
-      {
           "Date": "2026-07-06",
           "Month": "July",
           "Account Source": "BNZ Joint Billing Account",
@@ -542,39 +221,6 @@ else:
           "Budgeted Amount": 25.00,
       },
       {
-          "Date": "2026-08-01",
-          "Month": "August",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Insurance",
-          "Sub-Category": "Asset/Other Insurance",
-          "Particulars": "TOWER Insurance 820056152",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 42.08,
-          "Budgeted Amount": 45.00,
-      },
-      {
-          "Date": "2026-08-04",
-          "Month": "August",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Mortgage / Loans",
-          "Particulars": "HOUSING LOAN 892391890003",
-          "Payment Type": "Loan Repayment (LR)",
-          "Amount": 6145.24,
-          "Budgeted Amount": 6145.24,
-      },
-      {
-          "Date": "2026-08-05",
-          "Month": "August",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Insurance",
-          "Sub-Category": "Life Insurance",
-          "Particulars": "Partners Life Limite 1439227 PartnersLife",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 52.09,
-          "Budgeted Amount": 60.00,
-      },
-      {
           "Date": "2026-08-06",
           "Month": "August",
           "Account Source": "BNZ Joint Billing Account",
@@ -596,39 +242,6 @@ else:
           "Payment Type": "Direct Debit (DD)",
           "Amount": 17.67,
           "Budgeted Amount": 25.00,
-      },
-      {
-          "Date": "2026-09-01",
-          "Month": "September",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Insurance",
-          "Sub-Category": "Asset/Other Insurance",
-          "Particulars": "TOWER Insurance 820056152",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 42.08,
-          "Budgeted Amount": 45.00,
-      },
-      {
-          "Date": "2026-09-02",
-          "Month": "September",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Mortgage / Loans",
-          "Particulars": "HOUSING LOAN 892391890003",
-          "Payment Type": "Loan Repayment (LR)",
-          "Amount": 6145.24,
-          "Budgeted Amount": 6145.24,
-      },
-      {
-          "Date": "2026-09-05",
-          "Month": "September",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Insurance",
-          "Sub-Category": "Life Insurance",
-          "Particulars": "Partners Life Limite 1439227 PartnersLife",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 52.09,
-          "Budgeted Amount": 60.00,
       },
       {
           "Date": "2026-09-06",
@@ -673,7 +286,7 @@ unique_particulars = sorted(df["Particulars"].dropna().unique().tolist())
 focus_options = ["Show All Transactions"] + unique_particulars
 
 selected_focus = st.sidebar.selectbox(
-    "⚡ Quick Focus Particulars (All Outgoing):", focus_options
+    "⚡ Quick Focus Particulars:", focus_options
 )
 
 # Apply filters
@@ -694,7 +307,7 @@ st.subheader(
 # Separate outflows for expense metrics
 df_outflows = df_filtered[df_filtered["Category"] != "Income"]
 
-# --- Calculate Total Actual vs Budgeted Spending ---
+# Calculate Total Actual vs Budgeted Spending (Outflows only)
 total_actual_outflow = df_outflows["Amount"].sum()
 total_budgeted_outflow = df_outflows["Budgeted Amount"].sum()
 
@@ -716,6 +329,18 @@ kpi3.metric(
         else f"${abs(variance):,.2f} Over Budget"
     ),
 )
+
+# Special Highlight if Affinity Salary is selected
+if selected_focus == "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON":
+  affinity_df = df[
+      df["Particulars"]
+      == "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON"
+  ]
+  total_affinity_income = abs(affinity_df["Amount"]).sum()
+  st.success(
+      f"💼 **Total Affinity Salary Inflows (Jan–Sep 2026):**"
+      f" **${total_affinity_income:,.2f}** across {len(affinity_df)} months."
+  )
 
 st.markdown("---")
 
@@ -772,8 +397,8 @@ with tab1:
         st.plotly_chart(fig_bar, use_container_width=True)
     else:
       item_trend = (
-          df_outflows.groupby(["Month", "Particulars"])["Amount"]
-          .sum()
+          df_filtered.groupby(["Month", "Particulars"])["Amount"]
+          .apply(lambda x: abs(x.sum()))
           .reset_index()
       )
       fig_bar = px.bar(
@@ -805,7 +430,6 @@ with tab3:
         .sum()
         .reset_index()
     )
-    # Rename for clarity
     sub_summary = sub_summary.rename(
         columns={"Amount": "Actual Amount", "Budgeted Amount": "Budgeted"}
     )
