@@ -15,7 +15,8 @@ st.title(
 st.markdown(
     "Complete itemized transaction ledger for **January through September"
     " 2026** sourced directly from your BNZ Joint Billing statement, broken"
-    " down by category, sub-category, and payment type."
+    " down by category, sub-category, and payment type, complete with monthly"
+    " totals and budgeted comparisons."
 )
 
 # Sidebar File Uploader & Filters
@@ -35,7 +36,7 @@ if uploaded_file is not None:
     st.sidebar.error(f"Error reading file: {e}")
     df = None
 else:
-  # Complete itemized dataset spanning January to September 2026 using row records
+  # Complete itemized dataset spanning January to September 2026 with budget allocations
   data = [
       # --- JANUARY ---
       {
@@ -47,6 +48,7 @@ else:
           "Particulars": "TOWER Insurance 810131660",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 17.67,
+          "Budgeted Amount": 25.00,
       },
       {
           "Date": "2026-01-01",
@@ -57,6 +59,7 @@ else:
           "Particulars": "TOWER Insurance 820056152",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 42.08,
+          "Budgeted Amount": 45.00,
       },
       {
           "Date": "2026-01-01",
@@ -67,6 +70,7 @@ else:
           "Particulars": "HCC 1Sandal25174 1Sandal",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 72.25,
+          "Budgeted Amount": 72.25,
       },
       {
           "Date": "2026-01-01",
@@ -77,6 +81,7 @@ else:
           "Particulars": "WOOLWORTHS NZ/47 WHA 6921",
           "Payment Type": "Point of Sale (PS)",
           "Amount": 28.24,
+          "Budgeted Amount": 150.00,
       },
       {
           "Date": "2026-01-05",
@@ -87,6 +92,7 @@ else:
           "Particulars": "Partners Life Limite 1439227 PartnersLife",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 52.09,
+          "Budgeted Amount": 60.00,
       },
       {
           "Date": "2026-01-05",
@@ -97,6 +103,7 @@ else:
           "Particulars": "HOUSING LOAN 892391890003",
           "Payment Type": "Loan Repayment (LR)",
           "Amount": 361.51,
+          "Budgeted Amount": 361.51,
       },
       {
           "Date": "2026-01-06",
@@ -107,6 +114,7 @@ else:
           "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
           "Payment Type": "Direct Credit (DC)",
           "Amount": -1116.87,
+          "Budgeted Amount": 0.00,
       },
       {
           "Date": "2026-01-08",
@@ -117,6 +125,7 @@ else:
           "Particulars": "POWERSHOP Powershop 904059741",
           "Payment Type": "Auto-Payment (AP)",
           "Amount": 50.00,
+          "Budgeted Amount": 50.00,
       },
       # --- FEBRUARY ---
       {
@@ -128,6 +137,7 @@ else:
           "Particulars": "TOWER Insurance 810131660",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 17.67,
+          "Budgeted Amount": 25.00,
       },
       {
           "Date": "2026-02-01",
@@ -138,6 +148,7 @@ else:
           "Particulars": "TOWER Insurance 820056152",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 42.08,
+          "Budgeted Amount": 45.00,
       },
       {
           "Date": "2026-02-01",
@@ -148,6 +159,7 @@ else:
           "Particulars": "HCC 1Sandal25174 1Sandal",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 72.25,
+          "Budgeted Amount": 72.25,
       },
       {
           "Date": "2026-02-05",
@@ -158,6 +170,7 @@ else:
           "Particulars": "Partners Life Limite 1439227 PartnersLife",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 52.09,
+          "Budgeted Amount": 60.00,
       },
       {
           "Date": "2026-02-05",
@@ -168,6 +181,7 @@ else:
           "Particulars": "HOUSING LOAN 892391890003",
           "Payment Type": "Loan Repayment (LR)",
           "Amount": 6145.24,
+          "Budgeted Amount": 6145.24,
       },
       {
           "Date": "2026-02-06",
@@ -178,6 +192,7 @@ else:
           "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
           "Payment Type": "Direct Credit (DC)",
           "Amount": -1116.87,
+          "Budgeted Amount": 0.00,
       },
       {
           "Date": "2026-02-08",
@@ -188,6 +203,7 @@ else:
           "Particulars": "POWERSHOP Powershop 904059741",
           "Payment Type": "Auto-Payment (AP)",
           "Amount": 175.00,
+          "Budgeted Amount": 175.00,
       },
       # --- MARCH ---
       {
@@ -199,6 +215,7 @@ else:
           "Particulars": "TOWER Insurance 810131660",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 17.67,
+          "Budgeted Amount": 25.00,
       },
       {
           "Date": "2026-03-01",
@@ -209,6 +226,7 @@ else:
           "Particulars": "TOWER Insurance 820056152",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 42.08,
+          "Budgeted Amount": 45.00,
       },
       {
           "Date": "2026-03-01",
@@ -219,6 +237,7 @@ else:
           "Particulars": "HCC 1Sandal25174 1Sandal",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 72.25,
+          "Budgeted Amount": 72.25,
       },
       {
           "Date": "2026-03-05",
@@ -229,6 +248,7 @@ else:
           "Particulars": "Partners Life Limite 1439227 PartnersLife",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 52.09,
+          "Budgeted Amount": 60.00,
       },
       {
           "Date": "2026-03-05",
@@ -239,6 +259,7 @@ else:
           "Particulars": "HOUSING LOAN 892391890003",
           "Payment Type": "Loan Repayment (LR)",
           "Amount": 6145.24,
+          "Budgeted Amount": 6145.24,
       },
       {
           "Date": "2026-03-06",
@@ -249,6 +270,7 @@ else:
           "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
           "Payment Type": "Direct Credit (DC)",
           "Amount": -1116.87,
+          "Budgeted Amount": 0.00,
       },
       {
           "Date": "2026-03-09",
@@ -259,6 +281,7 @@ else:
           "Particulars": "POWERSHOP Powershop 904059741",
           "Payment Type": "Auto-Payment (AP)",
           "Amount": 175.00,
+          "Budgeted Amount": 175.00,
       },
       # --- APRIL ---
       {
@@ -270,6 +293,7 @@ else:
           "Particulars": "TOWER Insurance 810131660",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 17.67,
+          "Budgeted Amount": 25.00,
       },
       {
           "Date": "2026-04-01",
@@ -280,6 +304,7 @@ else:
           "Particulars": "TOWER Insurance 820056152",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 42.08,
+          "Budgeted Amount": 45.00,
       },
       {
           "Date": "2026-04-01",
@@ -290,6 +315,7 @@ else:
           "Particulars": "HCC 1Sandal25174 1Sandal",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 72.25,
+          "Budgeted Amount": 72.25,
       },
       {
           "Date": "2026-04-02",
@@ -300,6 +326,7 @@ else:
           "Particulars": "HOUSING LOAN 892391890003",
           "Payment Type": "Loan Repayment (LR)",
           "Amount": 6145.24,
+          "Budgeted Amount": 6145.24,
       },
       {
           "Date": "2026-04-05",
@@ -310,6 +337,7 @@ else:
           "Particulars": "Partners Life Limite 1439227 PartnersLife",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 52.09,
+          "Budgeted Amount": 60.00,
       },
       {
           "Date": "2026-04-06",
@@ -320,6 +348,7 @@ else:
           "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
           "Payment Type": "Direct Credit (DC)",
           "Amount": -1116.87,
+          "Budgeted Amount": 0.00,
       },
       # --- MAY ---
       {
@@ -331,6 +360,7 @@ else:
           "Particulars": "TOWER Insurance 810131660",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 17.67,
+          "Budgeted Amount": 25.00,
       },
       {
           "Date": "2026-05-01",
@@ -341,6 +371,7 @@ else:
           "Particulars": "TOWER Insurance 820056152",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 42.08,
+          "Budgeted Amount": 45.00,
       },
       {
           "Date": "2026-05-04",
@@ -351,6 +382,7 @@ else:
           "Particulars": "HOUSING LOAN 892391890003",
           "Payment Type": "Loan Repayment (LR)",
           "Amount": 6145.24,
+          "Budgeted Amount": 6145.24,
       },
       {
           "Date": "2026-05-05",
@@ -361,6 +393,7 @@ else:
           "Particulars": "Partners Life Limite 1439227 PartnersLife",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 52.09,
+          "Budgeted Amount": 60.00,
       },
       {
           "Date": "2026-05-06",
@@ -371,6 +404,7 @@ else:
           "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
           "Payment Type": "Direct Credit (DC)",
           "Amount": -1116.87,
+          "Budgeted Amount": 0.00,
       },
       # --- JUNE (With Lump-Sum Principal Spike) ---
       {
@@ -382,6 +416,7 @@ else:
           "Particulars": "TOWER Insurance 810131660",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 17.67,
+          "Budgeted Amount": 25.00,
       },
       {
           "Date": "2026-06-01",
@@ -392,6 +427,7 @@ else:
           "Particulars": "TOWER Insurance 820056152",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 42.08,
+          "Budgeted Amount": 45.00,
       },
       {
           "Date": "2026-06-03",
@@ -402,6 +438,7 @@ else:
           "Particulars": "Extra Principal Transfer",
           "Payment Type": "Bank Transfer",
           "Amount": 30851.24,
+          "Budgeted Amount": 0.00,
       },
       {
           "Date": "2026-06-03",
@@ -412,6 +449,7 @@ else:
           "Particulars": "HOUSING LOAN 892391890003",
           "Payment Type": "Loan Repayment (LR)",
           "Amount": 6145.24,
+          "Budgeted Amount": 6145.24,
       },
       {
           "Date": "2026-06-05",
@@ -422,6 +460,7 @@ else:
           "Particulars": "Partners Life Limite 1439227 PartnersLife",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 52.09,
+          "Budgeted Amount": 60.00,
       },
       {
           "Date": "2026-06-06",
@@ -432,6 +471,7 @@ else:
           "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
           "Payment Type": "Direct Credit (DC)",
           "Amount": -1116.87,
+          "Budgeted Amount": 0.00,
       },
       # --- JULY ---
       {
@@ -443,6 +483,7 @@ else:
           "Particulars": "TOWER Insurance 810131660",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 17.67,
+          "Budgeted Amount": 25.00,
       },
       {
           "Date": "2026-07-01",
@@ -453,6 +494,7 @@ else:
           "Particulars": "TOWER Insurance 820056152",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 42.08,
+          "Budgeted Amount": 45.00,
       },
       {
           "Date": "2026-07-06",
@@ -463,6 +505,7 @@ else:
           "Particulars": "HOUSING LOAN 892391890003",
           "Payment Type": "Loan Repayment (LR)",
           "Amount": 6145.24,
+          "Budgeted Amount": 6145.24,
       },
       {
           "Date": "2026-07-05",
@@ -473,6 +516,7 @@ else:
           "Particulars": "Partners Life Limite 1439227 PartnersLife",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 52.09,
+          "Budgeted Amount": 60.00,
       },
       {
           "Date": "2026-07-06",
@@ -483,6 +527,7 @@ else:
           "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
           "Payment Type": "Direct Credit (DC)",
           "Amount": -1116.87,
+          "Budgeted Amount": 0.00,
       },
       # --- AUGUST ---
       {
@@ -494,6 +539,7 @@ else:
           "Particulars": "TOWER Insurance 810131660",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 17.67,
+          "Budgeted Amount": 25.00,
       },
       {
           "Date": "2026-08-01",
@@ -504,6 +550,7 @@ else:
           "Particulars": "TOWER Insurance 820056152",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 42.08,
+          "Budgeted Amount": 45.00,
       },
       {
           "Date": "2026-08-04",
@@ -514,6 +561,7 @@ else:
           "Particulars": "HOUSING LOAN 892391890003",
           "Payment Type": "Loan Repayment (LR)",
           "Amount": 6145.24,
+          "Budgeted Amount": 6145.24,
       },
       {
           "Date": "2026-08-05",
@@ -524,6 +572,7 @@ else:
           "Particulars": "Partners Life Limite 1439227 PartnersLife",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 52.09,
+          "Budgeted Amount": 60.00,
       },
       {
           "Date": "2026-08-06",
@@ -534,6 +583,7 @@ else:
           "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
           "Payment Type": "Direct Credit (DC)",
           "Amount": -1116.87,
+          "Budgeted Amount": 0.00,
       },
       # --- SEPTEMBER ---
       {
@@ -545,6 +595,7 @@ else:
           "Particulars": "TOWER Insurance 810131660",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 17.67,
+          "Budgeted Amount": 25.00,
       },
       {
           "Date": "2026-09-01",
@@ -555,6 +606,7 @@ else:
           "Particulars": "TOWER Insurance 820056152",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 42.08,
+          "Budgeted Amount": 45.00,
       },
       {
           "Date": "2026-09-02",
@@ -565,6 +617,7 @@ else:
           "Particulars": "HOUSING LOAN 892391890003",
           "Payment Type": "Loan Repayment (LR)",
           "Amount": 6145.24,
+          "Budgeted Amount": 6145.24,
       },
       {
           "Date": "2026-09-05",
@@ -575,6 +628,7 @@ else:
           "Particulars": "Partners Life Limite 1439227 PartnersLife",
           "Payment Type": "Direct Debit (DD)",
           "Amount": 52.09,
+          "Budgeted Amount": 60.00,
       },
       {
           "Date": "2026-09-06",
@@ -585,6 +639,7 @@ else:
           "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
           "Payment Type": "Direct Credit (DC)",
           "Amount": -1116.87,
+          "Budgeted Amount": 0.00,
       },
   ]
   df = pd.DataFrame(data)
@@ -639,11 +694,36 @@ st.subheader(
 # Separate outflows for expense metrics
 df_outflows = df_filtered[df_filtered["Category"] != "Income"]
 
+# --- Calculate Total Actual vs Budgeted Spending ---
+total_actual_outflow = df_outflows["Amount"].sum()
+total_budgeted_outflow = df_outflows["Budgeted Amount"].sum()
+
+# Display KPI Summary Cards at the top
+kpi1, kpi2, kpi3 = st.columns(3)
+kpi1.metric(
+    label="💵 Total Actual Spending", value=f"${total_actual_outflow:,.2f}"
+)
+kpi2.metric(
+    label="📋 Total Budgeted Spending", value=f"${total_budgeted_outflow:,.2f}"
+)
+variance = total_budgeted_outflow - total_actual_outflow
+kpi3.metric(
+    label="⚖️ Budget Variance",
+    value=f"${variance:,.2f}",
+    delta=(
+        f"${variance:,.2f} Under Budget"
+        if variance >= 0
+        else f"${abs(variance):,.2f} Over Budget"
+    ),
+)
+
+st.markdown("---")
+
 # Create Multi-Tabs
 tab1, tab2, tab3, tab4 = st.tabs([
     "📈 Visual Analytics",
     "📋 Detailed Ledger",
-    "🏷️ Sub-Category & Payment Breakdown",
+    "🏷️ Sub-Category & Budget Breakdown",
     "🔍 Search & Filter",
 ])
 
@@ -710,14 +790,27 @@ with tab2:
   st.dataframe(df_filtered, use_container_width=True)
 
 with tab3:
-  st.subheader("Drill-Down by Sub-Category & Payment Type")
+  st.subheader("Drill-Down by Sub-Category, Payment Type & Budget")
   if not df_outflows.empty:
     sub_summary = (
         df_outflows.groupby(
-            ["Month", "Category", "Sub-Category", "Payment Type"]
+            [
+                "Month",
+                "Category",
+                "Sub-Category",
+                "Payment Type",
+                "Budgeted Amount",
+            ]
         )["Amount"]
         .sum()
         .reset_index()
+    )
+    # Rename for clarity
+    sub_summary = sub_summary.rename(
+        columns={"Amount": "Actual Amount", "Budgeted Amount": "Budgeted"}
+    )
+    sub_summary["Variance"] = (
+        sub_summary["Budgeted"] - sub_summary["Actual Amount"]
     )
     st.dataframe(sub_summary, use_container_width=True)
 
