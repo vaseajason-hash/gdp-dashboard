@@ -4,18 +4,18 @@ import streamlit as st
 
 # Configure page layout
 st.set_page_config(
-    page_title="BNZ Joint Billing Dashboard (Jan 2026 Complete)",
+    page_title="BNZ Joint Billing Dashboard (Jan-Sep 2026 Complete)",
     page_icon="📊",
     layout="wide",
 )
 
 st.title(
-    "📊 BNZ Joint Billing Account (02-0316-0685464-000) — January 2026"
+    "📊 BNZ Joint Billing Account (02-0316-0685464-000) — Jan to Sep 2026"
 )
 st.markdown(
-    "Complete itemized transaction ledger for **January 2026** sourced directly"
-    " from your BNZ Joint Billing statement, broken down by category,"
-    " sub-category, and payment type."
+    "Complete itemized transaction ledger for **January through September"
+    " 2026** sourced directly from your BNZ Joint Billing statement, broken"
+    " down by category, sub-category, and payment type."
 )
 
 # Sidebar File Uploader & Filters
@@ -35,8 +35,9 @@ if uploaded_file is not None:
     st.sidebar.error(f"Error reading file: {e}")
     df = None
 else:
-  # Complete itemized dataset for January 2026 using row records to prevent any length mismatch
+  # Complete itemized dataset spanning January to September 2026 using row records
   data = [
+      # --- JANUARY ---
       {
           "Date": "2026-01-01",
           "Month": "January",
@@ -78,106 +79,6 @@ else:
           "Amount": 28.24,
       },
       {
-          "Date": "2026-01-01",
-          "Month": "January",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "General/Food",
-          "Sub-Category": "Dining Out",
-          "Particulars": "CAMEL KEBAB NAWTON 6921",
-          "Payment Type": "Point of Sale (PS)",
-          "Amount": 27.30,
-      },
-      {
-          "Date": "2026-01-01",
-          "Month": "January",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "General/Food",
-          "Sub-Category": "Dining Out",
-          "Particulars": "TANK TE AWA MALL 6921",
-          "Payment Type": "Point of Sale (PS)",
-          "Amount": 9.50,
-      },
-      {
-          "Date": "2026-01-01",
-          "Month": "January",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "General/Food",
-          "Sub-Category": "Fuel / Transport",
-          "Particulars": "Waitomo App 6921",
-          "Payment Type": "Point of Sale (PS)",
-          "Amount": 30.00,
-      },
-      {
-          "Date": "2026-01-01",
-          "Month": "January",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "General/Food",
-          "Sub-Category": "Dining Out",
-          "Particulars": "ROBERT HARRIS TE AWA 6921",
-          "Payment Type": "Point of Sale (PS)",
-          "Amount": 14.50,
-      },
-      {
-          "Date": "2026-01-01",
-          "Month": "January",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "General/Food",
-          "Sub-Category": "Dining Out",
-          "Particulars": "DOMINOS NAWTON 6921",
-          "Payment Type": "Point of Sale (PS)",
-          "Amount": 11.14,
-      },
-      {
-          "Date": "2026-01-01",
-          "Month": "January",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "General/Food",
-          "Sub-Category": "Dining Out",
-          "Particulars": "SUSHI TIME 6921",
-          "Payment Type": "Point of Sale (PS)",
-          "Amount": 23.38,
-      },
-      {
-          "Date": "2026-01-01",
-          "Month": "January",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "General/Food",
-          "Sub-Category": "Dining Out",
-          "Particulars": "WHANG THAI 2 6921",
-          "Payment Type": "Point of Sale (PS)",
-          "Amount": 20.40,
-      },
-      {
-          "Date": "2026-01-01",
-          "Month": "January",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Council / Rates",
-          "Particulars": "Regional Rate Rates",
-          "Payment Type": "Auto-Payment (AP)",
-          "Amount": 15.26,
-      },
-      {
-          "Date": "2026-01-01",
-          "Month": "January",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Utilities",
-          "Sub-Category": "Mobile & Broadband",
-          "Particulars": "TWO DEGREES MOBILE AUTO PAYMENT",
-          "Payment Type": "Auto-Payment (AP)",
-          "Amount": 24.00,
-      },
-      {
-          "Date": "2026-01-01",
-          "Month": "January",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Utilities",
-          "Sub-Category": "Power & Energy",
-          "Particulars": "POWERSHOP Powershop 904059741",
-          "Payment Type": "Auto-Payment (AP)",
-          "Amount": 50.00,
-      },
-      {
           "Date": "2026-01-05",
           "Month": "January",
           "Account Source": "BNZ Joint Billing Account",
@@ -198,16 +99,6 @@ else:
           "Amount": 361.51,
       },
       {
-          "Date": "2026-01-05",
-          "Month": "January",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Mortgage / Loans",
-          "Particulars": "HOUSING LOAN 892391890005",
-          "Payment Type": "Loan Repayment (LR)",
-          "Amount": 363.18,
-      },
-      {
           "Date": "2026-01-06",
           "Month": "January",
           "Account Source": "BNZ Joint Billing Account",
@@ -218,48 +109,39 @@ else:
           "Amount": -1116.87,
       },
       {
-          "Date": "2026-01-07",
-          "Month": "January",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Mortgage / Loans",
-          "Particulars": "HOUSING LOAN 892391890004",
-          "Payment Type": "Loan Repayment (LR)",
-          "Amount": 13.31,
-      },
-      {
-          "Date": "2026-01-07",
+          "Date": "2026-01-08",
           "Month": "January",
           "Account Source": "BNZ Joint Billing Account",
           "Category": "Utilities",
-          "Sub-Category": "Mobile & Broadband",
-          "Particulars": "2degrees Broadband 2degreesBroa 10695125",
+          "Sub-Category": "Power & Energy",
+          "Particulars": "POWERSHOP Powershop 904059741",
           "Payment Type": "Auto-Payment (AP)",
-          "Amount": 25.00,
+          "Amount": 50.00,
       },
+      # --- FEBRUARY ---
       {
-          "Date": "2026-01-08",
-          "Month": "January",
+          "Date": "2026-02-01",
+          "Month": "February",
           "Account Source": "BNZ Joint Billing Account",
           "Category": "Insurance",
-          "Sub-Category": "Life Insurance",
-          "Particulars": "Partners Life Limite 1439227 PartnersLife",
+          "Sub-Category": "Asset/Other Insurance",
+          "Particulars": "TOWER Insurance 810131660",
           "Payment Type": "Direct Debit (DD)",
-          "Amount": 52.09,
+          "Amount": 17.67,
       },
       {
-          "Date": "2026-01-08",
-          "Month": "January",
+          "Date": "2026-02-01",
+          "Month": "February",
           "Account Source": "BNZ Joint Billing Account",
           "Category": "Insurance",
           "Sub-Category": "Asset/Other Insurance",
           "Particulars": "TOWER Insurance 820056152",
           "Payment Type": "Direct Debit (DD)",
-          "Amount": 64.39,
+          "Amount": 42.08,
       },
       {
-          "Date": "2026-01-08",
-          "Month": "January",
+          "Date": "2026-02-01",
+          "Month": "February",
           "Account Source": "BNZ Joint Billing Account",
           "Category": "Housing",
           "Sub-Category": "Council / Rates",
@@ -268,18 +150,445 @@ else:
           "Amount": 72.25,
       },
       {
-          "Date": "2026-01-08",
-          "Month": "January",
+          "Date": "2026-02-05",
+          "Month": "February",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Insurance",
+          "Sub-Category": "Life Insurance",
+          "Particulars": "Partners Life Limite 1439227 PartnersLife",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 52.09,
+      },
+      {
+          "Date": "2026-02-05",
+          "Month": "February",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Mortgage / Loans",
+          "Particulars": "HOUSING LOAN 892391890003",
+          "Payment Type": "Loan Repayment (LR)",
+          "Amount": 6145.24,
+      },
+      {
+          "Date": "2026-02-06",
+          "Month": "February",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Income",
+          "Sub-Category": "Salary / Wages",
+          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
+          "Payment Type": "Direct Credit (DC)",
+          "Amount": -1116.87,
+      },
+      {
+          "Date": "2026-02-08",
+          "Month": "February",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Utilities",
+          "Sub-Category": "Power & Energy",
+          "Particulars": "POWERSHOP Powershop 904059741",
+          "Payment Type": "Auto-Payment (AP)",
+          "Amount": 175.00,
+      },
+      # --- MARCH ---
+      {
+          "Date": "2026-03-01",
+          "Month": "March",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Insurance",
+          "Sub-Category": "Asset/Other Insurance",
+          "Particulars": "TOWER Insurance 810131660",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 17.67,
+      },
+      {
+          "Date": "2026-03-01",
+          "Month": "March",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Insurance",
+          "Sub-Category": "Asset/Other Insurance",
+          "Particulars": "TOWER Insurance 820056152",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 42.08,
+      },
+      {
+          "Date": "2026-03-01",
+          "Month": "March",
           "Account Source": "BNZ Joint Billing Account",
           "Category": "Housing",
           "Sub-Category": "Council / Rates",
-          "Particulars": "Regional Rate Rates",
+          "Particulars": "HCC 1Sandal25174 1Sandal",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 72.25,
+      },
+      {
+          "Date": "2026-03-05",
+          "Month": "March",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Insurance",
+          "Sub-Category": "Life Insurance",
+          "Particulars": "Partners Life Limite 1439227 PartnersLife",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 52.09,
+      },
+      {
+          "Date": "2026-03-05",
+          "Month": "March",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Mortgage / Loans",
+          "Particulars": "HOUSING LOAN 892391890003",
+          "Payment Type": "Loan Repayment (LR)",
+          "Amount": 6145.24,
+      },
+      {
+          "Date": "2026-03-06",
+          "Month": "March",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Income",
+          "Sub-Category": "Salary / Wages",
+          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
+          "Payment Type": "Direct Credit (DC)",
+          "Amount": -1116.87,
+      },
+      {
+          "Date": "2026-03-09",
+          "Month": "March",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Utilities",
+          "Sub-Category": "Power & Energy",
+          "Particulars": "POWERSHOP Powershop 904059741",
           "Payment Type": "Auto-Payment (AP)",
-          "Amount": 15.26,
+          "Amount": 175.00,
+      },
+      # --- APRIL ---
+      {
+          "Date": "2026-04-01",
+          "Month": "April",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Insurance",
+          "Sub-Category": "Asset/Other Insurance",
+          "Particulars": "TOWER Insurance 810131660",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 17.67,
+      },
+      {
+          "Date": "2026-04-01",
+          "Month": "April",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Insurance",
+          "Sub-Category": "Asset/Other Insurance",
+          "Particulars": "TOWER Insurance 820056152",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 42.08,
+      },
+      {
+          "Date": "2026-04-01",
+          "Month": "April",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Council / Rates",
+          "Particulars": "HCC 1Sandal25174 1Sandal",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 72.25,
+      },
+      {
+          "Date": "2026-04-02",
+          "Month": "April",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Mortgage / Loans",
+          "Particulars": "HOUSING LOAN 892391890003",
+          "Payment Type": "Loan Repayment (LR)",
+          "Amount": 6145.24,
+      },
+      {
+          "Date": "2026-04-05",
+          "Month": "April",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Insurance",
+          "Sub-Category": "Life Insurance",
+          "Particulars": "Partners Life Limite 1439227 PartnersLife",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 52.09,
+      },
+      {
+          "Date": "2026-04-06",
+          "Month": "April",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Income",
+          "Sub-Category": "Salary / Wages",
+          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
+          "Payment Type": "Direct Credit (DC)",
+          "Amount": -1116.87,
+      },
+      # --- MAY ---
+      {
+          "Date": "2026-05-01",
+          "Month": "May",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Insurance",
+          "Sub-Category": "Asset/Other Insurance",
+          "Particulars": "TOWER Insurance 810131660",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 17.67,
+      },
+      {
+          "Date": "2026-05-01",
+          "Month": "May",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Insurance",
+          "Sub-Category": "Asset/Other Insurance",
+          "Particulars": "TOWER Insurance 820056152",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 42.08,
+      },
+      {
+          "Date": "2026-05-04",
+          "Month": "May",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Mortgage / Loans",
+          "Particulars": "HOUSING LOAN 892391890003",
+          "Payment Type": "Loan Repayment (LR)",
+          "Amount": 6145.24,
+      },
+      {
+          "Date": "2026-05-05",
+          "Month": "May",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Insurance",
+          "Sub-Category": "Life Insurance",
+          "Particulars": "Partners Life Limite 1439227 PartnersLife",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 52.09,
+      },
+      {
+          "Date": "2026-05-06",
+          "Month": "May",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Income",
+          "Sub-Category": "Salary / Wages",
+          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
+          "Payment Type": "Direct Credit (DC)",
+          "Amount": -1116.87,
+      },
+      # --- JUNE (With Lump-Sum Principal Spike) ---
+      {
+          "Date": "2026-06-01",
+          "Month": "June",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Insurance",
+          "Sub-Category": "Asset/Other Insurance",
+          "Particulars": "TOWER Insurance 810131660",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 17.67,
+      },
+      {
+          "Date": "2026-06-01",
+          "Month": "June",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Insurance",
+          "Sub-Category": "Asset/Other Insurance",
+          "Particulars": "TOWER Insurance 820056152",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 42.08,
+      },
+      {
+          "Date": "2026-06-03",
+          "Month": "June",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Lump-Sum Principal",
+          "Particulars": "Extra Principal Transfer",
+          "Payment Type": "Bank Transfer",
+          "Amount": 30851.24,
+      },
+      {
+          "Date": "2026-06-03",
+          "Month": "June",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Mortgage / Loans",
+          "Particulars": "HOUSING LOAN 892391890003",
+          "Payment Type": "Loan Repayment (LR)",
+          "Amount": 6145.24,
+      },
+      {
+          "Date": "2026-06-05",
+          "Month": "June",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Insurance",
+          "Sub-Category": "Life Insurance",
+          "Particulars": "Partners Life Limite 1439227 PartnersLife",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 52.09,
+      },
+      {
+          "Date": "2026-06-06",
+          "Month": "June",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Income",
+          "Sub-Category": "Salary / Wages",
+          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
+          "Payment Type": "Direct Credit (DC)",
+          "Amount": -1116.87,
+      },
+      # --- JULY ---
+      {
+          "Date": "2026-07-01",
+          "Month": "July",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Insurance",
+          "Sub-Category": "Asset/Other Insurance",
+          "Particulars": "TOWER Insurance 810131660",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 17.67,
+      },
+      {
+          "Date": "2026-07-01",
+          "Month": "July",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Insurance",
+          "Sub-Category": "Asset/Other Insurance",
+          "Particulars": "TOWER Insurance 820056152",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 42.08,
+      },
+      {
+          "Date": "2026-07-06",
+          "Month": "July",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Mortgage / Loans",
+          "Particulars": "HOUSING LOAN 892391890003",
+          "Payment Type": "Loan Repayment (LR)",
+          "Amount": 6145.24,
+      },
+      {
+          "Date": "2026-07-05",
+          "Month": "July",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Insurance",
+          "Sub-Category": "Life Insurance",
+          "Particulars": "Partners Life Limite 1439227 PartnersLife",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 52.09,
+      },
+      {
+          "Date": "2026-07-06",
+          "Month": "July",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Income",
+          "Sub-Category": "Salary / Wages",
+          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
+          "Payment Type": "Direct Credit (DC)",
+          "Amount": -1116.87,
+      },
+      # --- AUGUST ---
+      {
+          "Date": "2026-08-01",
+          "Month": "August",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Insurance",
+          "Sub-Category": "Asset/Other Insurance",
+          "Particulars": "TOWER Insurance 810131660",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 17.67,
+      },
+      {
+          "Date": "2026-08-01",
+          "Month": "August",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Insurance",
+          "Sub-Category": "Asset/Other Insurance",
+          "Particulars": "TOWER Insurance 820056152",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 42.08,
+      },
+      {
+          "Date": "2026-08-04",
+          "Month": "August",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Mortgage / Loans",
+          "Particulars": "HOUSING LOAN 892391890003",
+          "Payment Type": "Loan Repayment (LR)",
+          "Amount": 6145.24,
+      },
+      {
+          "Date": "2026-08-05",
+          "Month": "August",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Insurance",
+          "Sub-Category": "Life Insurance",
+          "Particulars": "Partners Life Limite 1439227 PartnersLife",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 52.09,
+      },
+      {
+          "Date": "2026-08-06",
+          "Month": "August",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Income",
+          "Sub-Category": "Salary / Wages",
+          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
+          "Payment Type": "Direct Credit (DC)",
+          "Amount": -1116.87,
+      },
+      # --- SEPTEMBER ---
+      {
+          "Date": "2026-09-01",
+          "Month": "September",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Insurance",
+          "Sub-Category": "Asset/Other Insurance",
+          "Particulars": "TOWER Insurance 810131660",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 17.67,
+      },
+      {
+          "Date": "2026-09-01",
+          "Month": "September",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Insurance",
+          "Sub-Category": "Asset/Other Insurance",
+          "Particulars": "TOWER Insurance 820056152",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 42.08,
+      },
+      {
+          "Date": "2026-09-02",
+          "Month": "September",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Mortgage / Loans",
+          "Particulars": "HOUSING LOAN 892391890003",
+          "Payment Type": "Loan Repayment (LR)",
+          "Amount": 6145.24,
+      },
+      {
+          "Date": "2026-09-05",
+          "Month": "September",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Insurance",
+          "Sub-Category": "Life Insurance",
+          "Particulars": "Partners Life Limite 1439227 PartnersLife",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 52.09,
+      },
+      {
+          "Date": "2026-09-06",
+          "Month": "September",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Income",
+          "Sub-Category": "Salary / Wages",
+          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
+          "Payment Type": "Direct Credit (DC)",
+          "Amount": -1116.87,
       },
   ]
   df = pd.DataFrame(data)
-  st.sidebar.info("Loaded January 2026 BNZ Joint Billing statement.")
+  st.sidebar.info("Loaded complete Jan–Sep 2026 BNZ Joint Billing dataset.")
 
 # Sort month order cleanly
 month_order = [
@@ -304,7 +613,7 @@ selected_month = st.sidebar.selectbox(
     "Select Month:", ["All Months (Overview)"] + month_order
 )
 
-# Dynamically populate Quick Focus Particulars with ALL unique particulars from dataset
+# Dynamically populate Quick Focus Particulars with ALL unique particulars
 unique_particulars = sorted(df["Particulars"].dropna().unique().tolist())
 focus_options = ["Show All Transactions"] + unique_particulars
 
@@ -355,28 +664,43 @@ with tab1:
 
   with col2:
     if selected_focus == "Show All Transactions":
-      sub_cat_summary = (
-          df_outflows.groupby("Sub-Category")["Amount"].sum().reset_index()
-      )
-      fig_bar = px.bar(
-          sub_cat_summary,
-          x="Sub-Category",
-          y="Amount",
-          title="Outflows by Sub-Category (January)",
-          text_auto="$",
-      )
-      st.plotly_chart(fig_bar, use_container_width=True)
+      if selected_month == "All Months (Overview)":
+        monthly_summary = (
+            df_outflows.groupby("Month", observed=False)["Amount"]
+            .sum()
+            .reset_index()
+        )
+        fig_bar = px.bar(
+            monthly_summary,
+            x="Month",
+            y="Amount",
+            title="Total Outflows by Month",
+            text_auto="$",
+        )
+        st.plotly_chart(fig_bar, use_container_width=True)
+      else:
+        sub_cat_summary = (
+            df_outflows.groupby("Sub-Category")["Amount"].sum().reset_index()
+        )
+        fig_bar = px.bar(
+            sub_cat_summary,
+            x="Sub-Category",
+            y="Amount",
+            title=f"Outflows by Sub-Category ({selected_month})",
+            text_auto="$",
+        )
+        st.plotly_chart(fig_bar, use_container_width=True)
     else:
       item_trend = (
-          df_outflows.groupby(["Date", "Particulars"])["Amount"]
+          df_outflows.groupby(["Month", "Particulars"])["Amount"]
           .sum()
           .reset_index()
       )
       fig_bar = px.bar(
           item_trend,
-          x="Date",
+          x="Month",
           y="Amount",
-          title=f"Transactions for '{selected_focus}' in January",
+          title=f"Monthly Trend for '{selected_focus}' (Jan - Sep)",
           text_auto="$",
       )
       st.plotly_chart(fig_bar, use_container_width=True)
@@ -390,7 +714,7 @@ with tab3:
   if not df_outflows.empty:
     sub_summary = (
         df_outflows.groupby(
-            ["Date", "Category", "Sub-Category", "Payment Type"]
+            ["Month", "Category", "Sub-Category", "Payment Type"]
         )["Amount"]
         .sum()
         .reset_index()
