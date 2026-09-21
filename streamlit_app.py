@@ -4,18 +4,18 @@ import streamlit as st
 
 # Configure page layout
 st.set_page_config(
-    page_title="BNZ Joint Billing Dashboard (Monthly Breakdown)",
+    page_title="BNZ Joint Billing Dashboard (Advanced Filtering)",
     page_icon="📊",
     layout="wide",
 )
 
-st.title("📊 BNZ Joint Billing Account - Monthly Drill-Down Dashboard")
+st.title("📊 BNZ Joint Billing Account - Advanced Drill-Down Dashboard")
 st.markdown(
-    "Itemized transaction tracking from January to September 2026, broken down"
-    " month-by-month by category, sub-category, and payment type."
+    "Itemized transaction tracking from January to September 2026, with fast"
+    " multi-month filtering for specific policy particulars and bills."
 )
 
-# Sidebar File Uploader & Month Selector
+# Sidebar File Uploader & Filters
 st.sidebar.header("📁 Data Source & Filters")
 uploaded_file = st.sidebar.file_uploader(
     "Upload CSV or Excel Statement", type=["csv", "xlsx"]
@@ -477,19 +477,42 @@ df["Month"] = pd.Categorical(
 )
 df = df.sort_values("Month")
 
-# Sidebar Month Selector
+# Sidebar Filters
 st.sidebar.markdown("---")
 selected_month = st.sidebar.selectbox(
-    "Select Month to View:", ["All Months (Overview)"] + month_order
+    "Select Month:", ["All Months (Overview)"] + month_order
 )
 
-# Filter dataframe based on sidebar selection
+# Quick Focus Particulars Dropdown
+focus_options = [
+    "Show All Transactions",
+    "TOWER Insurance 810131660",
+    "HCC 1Sandal25174 1Sandal",
+    "POWERSHOP Powershop 904059741",
+    "Partners Life Limite 1439227",
+    "HOUSING LOAN 892391890003",
+    "2degrees Broadband",
+]
+selected_focus = st.sidebar.selectbox(
+    "⚡ Quick Focus Particulars:", focus_options
+)
+
+# Apply filters
+df_filtered = df.copy()
+
 if selected_month != "All Months (Overview)":
-  df_filtered = df[df["Month"] == selected_month]
-  st.subheader(f"📅 Detailed Breakdown for {selected_month} 2026")
-else:
-  df_filtered = df
-  st.subheader("📅 Detailed Breakdown Across All Months (Jan - Sep 2026)")
+  df_filtered = df_filtered[df_filtered["Month"] == selected_month]
+
+if selected_focus != "Show All Transactions":
+  df_filtered = df_filtered[
+      df_filtered["Particulars"].str.contains(selected_focus, case=False)
+  ]
+
+st.subheader(
+    f"📅 Viewing: {selected_month} | Focus: {selected_focus}"
+    if selected_focus != "Show All Transactions"
+    else f"📅 Viewing: {selected_month}"
+)
 
 # Separate outflows for expense metrics
 df_outflows = df_filtered[df_filtered["Category"] != "Income"]
@@ -503,9 +526,7 @@ tab1, tab2, tab3, tab4 = st.tabs([
 ])
 
 with tab1:
-  st.subheader(
-      f"Outflow Proportions — {selected_month if selected_month != 'All Months (Overview)' else 'Jan - Sep 2026'}"
-  )
+  st.subheader("Outflow Proportions & Trends")
   col1, col2 = st.columns(2)
 
   with col1:
@@ -520,67 +541,80 @@ with tab1:
     st.plotly_chart(fig_donut, use_container_width=True)
 
   with col2:
-    if selected_month == "All Months (Overview)":
-      monthly_summary = (
-          df_outflows.groupby("Month", observed=False)["Amount"]
+    if selected_focus == "Show All Transactions":
+      if selected_month == "All Months (Overview)":
+        monthly_summary = (
+            df_outflows.groupby("Month", observed=False)["Amount"]
+            .sum()
+            .reset_index()
+        )
+        fig_bar = px.bar(
+            monthly_summary,
+            x="Month",
+            y="Amount",
+            title="Total Outflows by Month",
+            text_auto="$",
+        )
+        st.plotly_chart(fig_bar, use_container_width=True)
+      else:
+        sub_cat_summary = (
+            df_outflows.groupby("Sub-Category")["Amount"].sum().reset_index()
+        )
+        fig_bar = px.bar(
+            sub_cat_summary,
+            x="Sub-Category",
+            y="Amount",
+            title=f"Outflows by Sub-Category ({selected_month})",
+            text_auto="$",
+        )
+        st.plotly_chart(fig_bar, use_container_width=True)
+    else:
+      # Show trend across months for the specific focused particular
+      item_trend = (
+          df_outflows.groupby(["Month", "Particulars"])["Amount"]
           .sum()
           .reset_index()
       )
       fig_bar = px.bar(
-          monthly_summary,
+          item_trend,
           x="Month",
           y="Amount",
-          title="Total Outflows by Month",
-          text_auto="$",
-      )
-      st.plotly_chart(fig_bar, use_container_width=True)
-    else:
-      sub_cat_summary = (
-          df_outflows.groupby("Sub-Category")["Amount"].sum().reset_index()
-      )
-      fig_bar = px.bar(
-          sub_cat_summary,
-          x="Sub-Category",
-          y="Amount",
-          title=f"Outflows by Sub-Category ({selected_month})",
+          title=f"Trend for '{selected_focus}' (Jan - Sep)",
           text_auto="$",
       )
       st.plotly_chart(fig_bar, use_container_width=True)
 
 with tab2:
-  st.subheader(
-      f"Statement Itemized Log — {selected_month if selected_month != 'All Months (Overview)' else 'Jan - Sep 2026'}"
-  )
+  st.subheader("Statement Itemized Log")
   st.dataframe(df_filtered, use_container_width=True)
 
 with tab3:
-  st.subheader(
-      f"Drill-Down by Sub-Category & Payment Type ({selected_month})"
-  )
-  sub_summary = (
-      df_outflows.groupby(["Month", "Category", "Sub-Category", "Payment Type"])[
-          "Amount"
-      ]
-      .sum()
-      .reset_index()
-  )
-  st.dataframe(sub_summary, use_container_width=True)
+  st.subheader("Drill-Down by Sub-Category & Payment Type")
+  if not df_outflows.empty:
+    sub_summary = (
+        df_outflows.groupby(
+            ["Month", "Category", "Sub-Category", "Payment Type"]
+        )["Amount"]
+        .sum()
+        .reset_index()
+    )
+    st.dataframe(sub_summary, use_container_width=True)
 
-  fig_sub = px.bar(
-      df_outflows,
-      x="Sub-Category",
-      y="Amount",
-      color="Category",
-      title=f"Expenses Drill-Down — {selected_month}",
-      text_auto="$",
-  )
-  st.plotly_chart(fig_sub, use_container_width=True)
+    fig_sub = px.bar(
+        df_outflows,
+        x="Sub-Category",
+        y="Amount",
+        color="Category",
+        title="Expenses Drill-Down",
+        text_auto="$",
+    )
+    st.plotly_chart(fig_sub, use_container_width=True)
+  else:
+    st.info("No matching outflow data for this selection.")
 
 with tab4:
   st.subheader("Dynamic Search & Filter")
-  search_term = st.text_input(
-      "Filter by keyword (e.g., 'TOWER', 'Loan', 'Direct Debit')"
-  )
+  search_term = st.text_input("Filter by custom keyword")
 
   if search_term:
     text_cols = df_filtered.select_dtypes(include=["object"]).columns
