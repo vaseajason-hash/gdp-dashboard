@@ -1,18 +1,19 @@
 import pandas as pd
+import plotly.express as px
 import streamlit as st
 
 # Configure page layout
 st.set_page_config(
-    page_title="Detailed Expense Dashboard", page_icon="📊", layout="wide"
+    page_title="Advanced Financial Dashboard", page_icon="📊", layout="wide"
 )
 
-st.title("📊 Detailed Financial & Expense Tracking Dashboard")
+st.title("📊 Advanced Financial & Expense Analytics Dashboard")
 st.markdown(
-    "Explore itemized transactions, filter by specific particulars, and"
-    " analyze spending patterns."
+    "Explore itemized transactions, multi-tab analytics, and interactive"
+    " visualizations."
 )
 
-# Expanded itemized dataset (sample structure for individual transactions)
+# Itemized transaction dataset
 data = {
     "Date": [
         "2026-01-05",
@@ -98,25 +99,48 @@ data = {
 
 df = pd.DataFrame(data)
 
-# Create Multi-Tabs
+# Create Multi-Tabs for Advanced Views
 tab1, tab2, tab3 = st.tabs(
-    ["📋 Itemized Transactions", "📈 Category Breakdown", "🔍 Search & Filter"]
+    ["📈 Visual Analytics", "📋 Itemized Ledger", "🔍 Search & Filter"]
 )
 
 with tab1:
-    st.subheader("Complete Itemized Log")
-    st.dataframe(df, use_container_width=True)
+    st.subheader("Spending Breakdown & Proportions")
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        # Category Summary for Donut Chart
+        cat_summary = df.groupby("Category")["Amount"].sum().reset_index()
+        fig_donut = px.pie(
+            cat_summary,
+            names="Category",
+            values="Amount",
+            hole=0.4,
+            title="Outflows by Category Proportion",
+        )
+        st.plotly_chart(fig_donut, use_container_width=True)
+
+    with col2:
+        # Monthly Bar Chart using Plotly
+        monthly_summary = df.groupby("Month")["Amount"].sum().reset_index()
+        fig_bar = px.bar(
+            monthly_summary,
+            x="Month",
+            y="Amount",
+            title="Total Outflows by Month",
+            text_auto="$",
+        )
+        st.plotly_chart(fig_bar, use_container_width=True)
 
 with tab2:
-    st.subheader("Spending by Category")
-    category_summary = df.groupby("Category")["Amount"].sum().reset_index()
-    st.dataframe(category_summary, use_container_width=True)
-    st.bar_chart(category_summary.set_index("Category")["Amount"])
+    st.subheader("Complete Itemized Transaction Log")
+    st.dataframe(df, use_container_width=True)
 
 with tab3:
-    st.subheader("Advanced Search")
+    st.subheader("Dynamic Search & Filter")
     search_term = st.text_input(
-        "Search particulars or categories (e.g., 'Loan', 'Insurance', 'Powershop')"
+        "Filter by keyword (e.g., 'Loan', 'Insurance', 'Powershop')"
     )
 
     if search_term:
@@ -127,4 +151,4 @@ with tab3:
         st.write(f"Found {len(filtered_results)} matching transactions:")
         st.dataframe(filtered_results, use_container_width=True)
     else:
-        st.info("Type a keyword above to filter transactions.")
+        st.info("Type a keyword above to look up specific transactions.")
