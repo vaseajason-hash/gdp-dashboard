@@ -35,10 +35,10 @@ if uploaded_file is not None:
     st.sidebar.error(f"Error reading file: {e}")
     df = None
 else:
-  # Extended sample dataset covering January to September 2026 for Joint Billing Account
+  # Extended sample dataset covering January to September 2026 for Joint Billing Account (Exactly 56 rows per column)
   data = {
       "Date": [
-          # January 2026
+          # January (8 items)
           "2026-01-01",
           "2026-01-01",
           "2026-01-01",
@@ -47,35 +47,35 @@ else:
           "2026-01-06",
           "2026-01-07",
           "2026-01-08",
-          # February 2026
+          # February (6 items)
           "2026-02-01",
           "2026-02-01",
           "2026-02-05",
           "2026-02-06",
           "2026-02-07",
           "2026-02-08",
-          # March 2026
+          # March (6 items)
           "2026-03-01",
           "2026-03-01",
           "2026-03-05",
           "2026-03-06",
           "2026-03-07",
           "2026-03-08",
-          # April 2026
+          # April (6 items)
           "2026-04-01",
           "2026-04-01",
           "2026-04-05",
           "2026-04-06",
           "2026-04-07",
           "2026-04-08",
-          # May 2026
+          # May (6 items)
           "2026-05-01",
           "2026-05-01",
           "2026-05-05",
           "2026-05-06",
           "2026-05-07",
           "2026-05-08",
-          # June 2026
+          # June (7 items)
           "2026-06-01",
           "2026-06-01",
           "2026-06-03",
@@ -83,21 +83,20 @@ else:
           "2026-06-06",
           "2026-06-07",
           "2026-06-08",
-          # July 2026
+          # July (6 items)
           "2026-07-01",
           "2026-07-01",
           "2026-07-05",
           "2026-07-06",
           "2026-07-07",
           "2026-07-08",
-          # August 2026
+          # August (5 items)
           "2026-08-01",
           "2026-08-01",
           "2026-08-05",
           "2026-08-06",
-          "2026-08-07",
           "2026-08-08",
-          # September 2026
+          # September (6 items)
           "2026-09-01",
           "2026-09-01",
           "2026-09-05",
@@ -106,6 +105,7 @@ else:
           "2026-09-08",
       ],
       "Month": [
+          # Jan
           "January",
           "January",
           "January",
@@ -114,30 +114,35 @@ else:
           "January",
           "January",
           "January",
+          # Feb
           "February",
           "February",
           "February",
           "February",
           "February",
           "February",
+          # Mar
           "March",
           "March",
           "March",
           "March",
           "March",
           "March",
+          # Apr
           "April",
           "April",
           "April",
           "April",
           "April",
           "April",
+          # May
           "May",
           "May",
           "May",
           "May",
           "May",
           "May",
+          # Jun
           "June",
           "June",
           "June",
@@ -145,18 +150,20 @@ else:
           "June",
           "June",
           "June",
+          # Jul
           "July",
           "July",
           "July",
           "July",
           "July",
           "July",
+          # Aug
           "August",
           "August",
           "August",
           "August",
           "August",
-          "August",
+          # Sep
           "September",
           "September",
           "September",
@@ -166,6 +173,7 @@ else:
       ],
       "Account Source": ["BNZ Joint Billing Account"] * 56,
       "Category": [
+          # Jan
           "Insurance",
           "Housing",
           "General/Food",
@@ -174,30 +182,35 @@ else:
           "Income",
           "Housing",
           "Utilities",
+          # Feb
           "Insurance",
           "Housing",
           "Insurance",
           "Income",
           "Housing",
           "Utilities",
+          # Mar
           "Insurance",
           "Housing",
           "Insurance",
           "Income",
           "Housing",
           "Utilities",
+          # Apr
           "Insurance",
           "Housing",
           "Insurance",
           "Income",
           "Housing",
           "Utilities",
+          # May
           "Insurance",
           "Housing",
           "Insurance",
           "Income",
           "Housing",
           "Utilities",
+          # Jun
           "Insurance",
           "Housing",
           "Housing",
@@ -205,18 +218,20 @@ else:
           "Income",
           "Housing",
           "Utilities",
+          # Jul
           "Insurance",
           "Housing",
           "Insurance",
           "Income",
           "Housing",
           "Utilities",
+          # Aug
           "Insurance",
           "Housing",
           "Insurance",
           "Income",
           "Housing",
-          "Utilities",
+          # Sep
           "Insurance",
           "Housing",
           "Insurance",
@@ -225,6 +240,7 @@ else:
           "Utilities",
       ],
       "Sub-Category": [
+          # Jan
           "Asset/Other Insurance",
           "Council / Rates",
           "Groceries & Dining",
@@ -233,30 +249,35 @@ else:
           "Salary / Wages",
           "Mortgage / Loans",
           "Mobile & Broadband",
+          # Feb
           "Asset/Other Insurance",
           "Council / Rates",
           "Life Insurance",
           "Salary / Wages",
           "Mortgage / Loans",
           "Mobile & Broadband",
+          # Mar
           "Asset/Other Insurance",
           "Council / Rates",
           "Life Insurance",
           "Salary / Wages",
           "Mortgage / Loans",
           "Mobile & Broadband",
+          # Apr
           "Asset/Other Insurance",
           "Council / Rates",
           "Life Insurance",
           "Salary / Wages",
           "Mortgage / Loans",
           "Mobile & Broadband",
+          # May
           "Asset/Other Insurance",
           "Council / Rates",
           "Life Insurance",
           "Salary / Wages",
           "Mortgage / Loans",
           "Mobile & Broadband",
+          # Jun
           "Asset/Other Insurance",
           "Council / Rates",
           "Lump-Sum Principal",
@@ -264,18 +285,20 @@ else:
           "Salary / Wages",
           "Mortgage / Loans",
           "Mobile & Broadband",
+          # Jul
           "Asset/Other Insurance",
           "Council / Rates",
           "Life Insurance",
           "Salary / Wages",
           "Mortgage / Loans",
           "Mobile & Broadband",
+          # Aug
           "Asset/Other Insurance",
           "Council / Rates",
           "Life Insurance",
           "Salary / Wages",
           "Mortgage / Loans",
-          "Mobile & Broadband",
+          # Sep
           "Asset/Other Insurance",
           "Council / Rates",
           "Life Insurance",
@@ -284,6 +307,7 @@ else:
           "Mobile & Broadband",
       ],
       "Particulars": [
+          # Jan
           "TOWER Insurance 810131660",
           "HCC 1Sandal25174 1Sandal",
           "WOOLWORTHS NZ / DINING",
@@ -292,30 +316,35 @@ else:
           "AFFINITY EMPL GWF PAY",
           "HOUSING LOAN 892391890003",
           "2degrees Broadband",
+          # Feb
           "TOWER Insurance 810131660",
           "HCC 1Sandal25174 1Sandal",
           "Partners Life Limite 1439227",
           "AFFINITY EMPL GWF PAY",
           "HOUSING LOAN 892391890003",
           "2degrees Broadband",
+          # Mar
           "TOWER Insurance 810131660",
           "HCC 1Sandal25174 1Sandal",
           "Partners Life Limite 1439227",
           "AFFINITY EMPL GWF PAY",
           "HOUSING LOAN 892391890003",
           "2degrees Broadband",
+          # Apr
           "TOWER Insurance 810131660",
           "HCC 1Sandal25174 1Sandal",
           "Partners Life Limite 1439227",
           "AFFINITY EMPL GWF PAY",
           "HOUSING LOAN 892391890003",
           "2degrees Broadband",
+          # May
           "TOWER Insurance 810131660",
           "HCC 1Sandal25174 1Sandal",
           "Partners Life Limite 1439227",
           "AFFINITY EMPL GWF PAY",
           "HOUSING LOAN 892391890003",
           "2degrees Broadband",
+          # Jun
           "TOWER Insurance 810131660",
           "HCC 1Sandal25174 1Sandal",
           "Extra Principal Transfer",
@@ -323,18 +352,20 @@ else:
           "AFFINITY EMPL GWF PAY",
           "HOUSING LOAN 892391890003",
           "2degrees Broadband",
+          # Jul
           "TOWER Insurance 810131660",
           "HCC 1Sandal25174 1Sandal",
           "Partners Life Limite 1439227",
           "AFFINITY EMPL GWF PAY",
           "HOUSING LOAN 892391890003",
           "2degrees Broadband",
+          # Aug
           "TOWER Insurance 810131660",
           "HCC 1Sandal25174 1Sandal",
           "Partners Life Limite 1439227",
           "AFFINITY EMPL GWF PAY",
           "HOUSING LOAN 892391890003",
-          "2degrees Broadband",
+          # Sep
           "TOWER Insurance 810131660",
           "HCC 1Sandal25174 1Sandal",
           "Partners Life Limite 1439227",
@@ -343,6 +374,7 @@ else:
           "2degrees Broadband",
       ],
       "Payment Type": [
+          # Jan
           "Direct Debit (DD)",
           "Direct Debit (DD)",
           "Point of Sale (PS)",
@@ -351,30 +383,35 @@ else:
           "Direct Credit (DC)",
           "Loan Repayment (LR)",
           "Auto-Payment (AP)",
+          # Feb
           "Direct Debit (DD)",
           "Direct Debit (DD)",
           "Direct Debit (DD)",
           "Direct Credit (DC)",
           "Loan Repayment (LR)",
           "Auto-Payment (AP)",
+          # Mar
           "Direct Debit (DD)",
           "Direct Debit (DD)",
           "Direct Debit (DD)",
           "Direct Credit (DC)",
           "Loan Repayment (LR)",
           "Auto-Payment (AP)",
+          # Apr
           "Direct Debit (DD)",
           "Direct Debit (DD)",
           "Direct Debit (DD)",
           "Direct Credit (DC)",
           "Loan Repayment (LR)",
           "Auto-Payment (AP)",
+          # May
           "Direct Debit (DD)",
           "Direct Debit (DD)",
           "Direct Debit (DD)",
           "Direct Credit (DC)",
           "Loan Repayment (LR)",
           "Auto-Payment (AP)",
+          # Jun
           "Direct Debit (DD)",
           "Direct Debit (DD)",
           "Bank Transfer",
@@ -382,18 +419,20 @@ else:
           "Direct Credit (DC)",
           "Loan Repayment (LR)",
           "Auto-Payment (AP)",
+          # Jul
           "Direct Debit (DD)",
           "Direct Debit (DD)",
           "Direct Debit (DD)",
           "Direct Credit (DC)",
           "Loan Repayment (LR)",
           "Auto-Payment (AP)",
+          # Aug
           "Direct Debit (DD)",
           "Direct Debit (DD)",
           "Direct Debit (DD)",
           "Direct Credit (DC)",
           "Loan Repayment (LR)",
-          "Auto-Payment (AP)",
+          # Sep
           "Direct Debit (DD)",
           "Direct Debit (DD)",
           "Direct Debit (DD)",
@@ -402,6 +441,7 @@ else:
           "Auto-Payment (AP)",
       ],
       "Amount": [
+          # Jan
           59.75,
           72.25,
           150.00,
@@ -410,30 +450,35 @@ else:
           -1116.87,
           6145.24,
           25.00,
+          # Feb
           59.75,
           72.25,
           52.09,
           -1116.87,
           6145.24,
           25.00,
+          # Mar
           59.75,
           72.25,
           52.09,
           -1116.87,
           6145.24,
           25.00,
+          # Apr
           59.75,
           72.25,
           52.09,
           -1116.87,
           6145.24,
           25.00,
+          # May
           59.75,
           72.25,
           52.09,
           -1116.87,
           6145.24,
           25.00,
+          # Jun
           59.75,
           72.25,
           30851.24,
@@ -441,18 +486,20 @@ else:
           -1116.87,
           6145.24,
           25.00,
+          # Jul
           59.75,
           72.25,
           52.09,
           -1116.87,
           6145.24,
           25.00,
+          # Aug
           59.75,
           72.25,
           52.09,
           -1116.87,
           6145.24,
-          25.00,
+          # Sep
           59.75,
           72.25,
           52.09,
