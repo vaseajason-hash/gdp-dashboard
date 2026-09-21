@@ -536,18 +536,12 @@ selected_month = st.sidebar.selectbox(
     "Select Month:", ["All Months (Overview)"] + month_order
 )
 
-# Quick Focus Particulars Dropdown
-focus_options = [
-    "Show All Transactions",
-    "TOWER Insurance 810131660",
-    "HCC 1Sandal25174 1Sandal",
-    "POWERSHOP Powershop 904059741",
-    "Partners Life Limite 1439227",
-    "HOUSING LOAN 892391890003",
-    "2degrees Broadband",
-]
+# Dynamically populate Quick Focus Particulars with ALL unique particulars from the dataset
+unique_particulars = sorted(df["Particulars"].dropna().unique().tolist())
+focus_options = ["Show All Transactions"] + unique_particulars
+
 selected_focus = st.sidebar.selectbox(
-    "⚡ Quick Focus Particulars:", focus_options
+    "⚡ Quick Focus Particulars (All Outgoing):", focus_options
 )
 
 # Apply filters
@@ -557,9 +551,7 @@ if selected_month != "All Months (Overview)":
   df_filtered = df_filtered[df_filtered["Month"] == selected_month]
 
 if selected_focus != "Show All Transactions":
-  df_filtered = df_filtered[
-      df_filtered["Particulars"].str.contains(selected_focus, case=False)
-  ]
+  df_filtered = df_filtered[df_filtered["Particulars"] == selected_focus]
 
 st.subheader(
     f"📅 Viewing: {selected_month} | Focus: {selected_focus}"
@@ -631,7 +623,7 @@ with tab1:
           item_trend,
           x="Month",
           y="Amount",
-          title=f"Trend for '{selected_focus}' (Jan - Sep)",
+          title=f"Monthly Trend for '{selected_focus}' (Jan - Sep)",
           text_auto="$",
       )
       st.plotly_chart(fig_bar, use_container_width=True)
