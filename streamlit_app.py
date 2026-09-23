@@ -16,7 +16,7 @@ st.markdown(
 )
 
 # ==========================================
-# PART 1: BNZ JOINT BILLING ACCOUNT (PREVIOUS DATA & CHARTS)
+# PART 1: BNZ JOINT BILLING ACCOUNT
 # ==========================================
 st.header("🏠 BNZ Joint Billing Account (02-0316-0685464-000)")
 
@@ -40,7 +40,6 @@ if jb_uploaded_file is not None:
 
 if df_jb is None:
   data_jb = [
-      # JANUARY
       {
           "Date": "2026-01-01",
           "Month": "January",
@@ -62,28 +61,6 @@ if df_jb is None:
           "Payment Type": "Direct Debit (DD)",
           "Amount": 72.25,
           "Budgeted Amount": 72.25,
-      },
-      {
-          "Date": "2026-01-10",
-          "Month": "January",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Groceries",
-          "Sub-Category": "Supermarket",
-          "Particulars": "PAK'nSAVE Hamilton",
-          "Payment Type": "Eftpos (EF)",
-          "Amount": 245.80,
-          "Budgeted Amount": 250.00,
-      },
-      {
-          "Date": "2026-01-15",
-          "Month": "January",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Dining & Entertainment",
-          "Sub-Category": "Restaurants",
-          "Particulars": "Whang Thai 2 Pad Thai",
-          "Payment Type": "Visa Debit (VD)",
-          "Amount": 48.50,
-          "Budgeted Amount": 50.00,
       },
       {
           "Date": "2026-01-06",
@@ -94,597 +71,6 @@ if df_jb is None:
           "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
           "Payment Type": "Direct Credit (DC)",
           "Amount": -1116.87,
-          "Budgeted Amount": 0.00,
-      },
-      {
-          "Date": "2026-01-13",
-          "Month": "January",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Income",
-          "Sub-Category": "Salary / Wages",
-          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
-          "Payment Type": "Direct Credit (DC)",
-          "Amount": -1121.05,
-          "Budgeted Amount": 0.00,
-      },
-      {
-          "Date": "2026-01-22",
-          "Month": "January",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Income",
-          "Sub-Category": "Salary / Wages",
-          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
-          "Payment Type": "Direct Credit (DC)",
-          "Amount": -1087.52,
-          "Budgeted Amount": 0.00,
-      },
-      # FEBRUARY
-      {
-          "Date": "2026-02-01",
-          "Month": "February",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Insurance",
-          "Sub-Category": "Asset/Other Insurance",
-          "Particulars": "TOWER Insurance 810131660",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 17.67,
-          "Budgeted Amount": 25.00,
-      },
-      {
-          "Date": "2026-02-01",
-          "Month": "February",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Council / Rates",
-          "Particulars": "HCC 1Sandal25174 1Sandal",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 72.25,
-          "Budgeted Amount": 72.25,
-      },
-      {
-          "Date": "2026-02-05",
-          "Month": "February",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Mortgage / Loans",
-          "Particulars": "HOUSING LOAN 892391890003",
-          "Payment Type": "Loan Repayment (LR)",
-          "Amount": 6145.24,
-          "Budgeted Amount": 6145.24,
-      },
-      {
-          "Date": "2026-02-08",
-          "Month": "February",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Utilities",
-          "Sub-Category": "Power & Energy",
-          "Particulars": "POWERSHOP Powershop 904059741",
-          "Payment Type": "Auto-Payment (AP)",
-          "Amount": 175.00,
-          "Budgeted Amount": 175.00,
-      },
-      {
-          "Date": "2026-02-12",
-          "Month": "February",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Groceries",
-          "Sub-Category": "Supermarket",
-          "Particulars": "Countdown Te Rapa",
-          "Payment Type": "Eftpos (EF)",
-          "Amount": 210.40,
-          "Budgeted Amount": 220.00,
-      },
-      {
-          "Date": "2026-02-03",
-          "Month": "February",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Income",
-          "Sub-Category": "Salary / Wages",
-          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
-          "Payment Type": "Direct Credit (DC)",
-          "Amount": -1116.87,
-          "Budgeted Amount": 0.00,
-      },
-      {
-          "Date": "2026-02-12",
-          "Month": "February",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Income",
-          "Sub-Category": "Salary / Wages",
-          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
-          "Payment Type": "Direct Credit (DC)",
-          "Amount": -1116.87,
-          "Budgeted Amount": 0.00,
-      },
-      # MARCH
-      {
-          "Date": "2026-03-01",
-          "Month": "March",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Insurance",
-          "Sub-Category": "Asset/Other Insurance",
-          "Particulars": "TOWER Insurance 810131660",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 17.67,
-          "Budgeted Amount": 25.00,
-      },
-      {
-          "Date": "2026-03-01",
-          "Month": "March",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Council / Rates",
-          "Particulars": "HCC 1Sandal25174 1Sandal",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 72.25,
-          "Budgeted Amount": 72.25,
-      },
-      {
-          "Date": "2026-03-05",
-          "Month": "March",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Mortgage / Loans",
-          "Particulars": "HOUSING LOAN 892391890003",
-          "Payment Type": "Loan Repayment (LR)",
-          "Amount": 6145.24,
-          "Budgeted Amount": 6145.24,
-      },
-      {
-          "Date": "2026-03-09",
-          "Month": "March",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Utilities",
-          "Sub-Category": "Power & Energy",
-          "Particulars": "POWERSHOP Powershop 904059741",
-          "Payment Type": "Auto-Payment (AP)",
-          "Amount": 175.00,
-          "Budgeted Amount": 175.00,
-      },
-      {
-          "Date": "2026-03-14",
-          "Month": "March",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Shopping",
-          "Sub-Category": "Hardware / Tools",
-          "Particulars": "Bunnings Warehouse Te Rapa",
-          "Payment Type": "Visa Debit (VD)",
-          "Amount": 134.90,
-          "Budgeted Amount": 100.00,
-      },
-      {
-          "Date": "2026-03-02",
-          "Month": "March",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Income",
-          "Sub-Category": "Salary / Wages",
-          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
-          "Payment Type": "Direct Credit (DC)",
-          "Amount": -1152.01,
-          "Budgeted Amount": 0.00,
-      },
-      {
-          "Date": "2026-03-10",
-          "Month": "March",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Income",
-          "Sub-Category": "Salary / Wages",
-          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
-          "Payment Type": "Direct Credit (DC)",
-          "Amount": -1097.12,
-          "Budgeted Amount": 0.00,
-      },
-      {
-          "Date": "2026-03-24",
-          "Month": "March",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Income",
-          "Sub-Category": "Salary / Wages",
-          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
-          "Payment Type": "Direct Credit (DC)",
-          "Amount": -1252.01,
-          "Budgeted Amount": 0.00,
-      },
-      # APRIL
-      {
-          "Date": "2026-04-01",
-          "Month": "April",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Insurance",
-          "Sub-Category": "Asset/Other Insurance",
-          "Particulars": "TOWER Insurance 810131660",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 17.67,
-          "Budgeted Amount": 25.00,
-      },
-      {
-          "Date": "2026-04-01",
-          "Month": "April",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Council / Rates",
-          "Particulars": "HCC 1Sandal25174 1Sandal",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 72.25,
-          "Budgeted Amount": 72.25,
-      },
-      {
-          "Date": "2026-04-02",
-          "Month": "April",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Mortgage / Loans",
-          "Particulars": "HOUSING LOAN 892391890003",
-          "Payment Type": "Loan Repayment (LR)",
-          "Amount": 6145.24,
-          "Budgeted Amount": 6145.24,
-      },
-      {
-          "Date": "2026-04-18",
-          "Month": "April",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Groceries",
-          "Sub-Category": "Supermarket",
-          "Particulars": "The Warehouse Dinsdale",
-          "Payment Type": "Visa Debit (VD)",
-          "Amount": 88.30,
-          "Budgeted Amount": 90.00,
-      },
-      {
-          "Date": "2026-04-07",
-          "Month": "April",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Income",
-          "Sub-Category": "Salary / Wages",
-          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
-          "Payment Type": "Direct Credit (DC)",
-          "Amount": -1150.95,
-          "Budgeted Amount": 0.00,
-      },
-      {
-          "Date": "2026-04-21",
-          "Month": "April",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Income",
-          "Sub-Category": "Salary / Wages",
-          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
-          "Payment Type": "Direct Credit (DC)",
-          "Amount": -1170.59,
-          "Budgeted Amount": 0.00,
-      },
-      # MAY
-      {
-          "Date": "2026-05-01",
-          "Month": "May",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Insurance",
-          "Sub-Category": "Asset/Other Insurance",
-          "Particulars": "TOWER Insurance 810131660",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 17.67,
-          "Budgeted Amount": 25.00,
-      },
-      {
-          "Date": "2026-05-01",
-          "Month": "May",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Council / Rates",
-          "Particulars": "HCC 1Sandal25174 1Sandal",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 72.25,
-          "Budgeted Amount": 72.25,
-      },
-      {
-          "Date": "2026-05-04",
-          "Month": "May",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Mortgage / Loans",
-          "Particulars": "HOUSING LOAN 892391890003",
-          "Payment Type": "Loan Repayment (LR)",
-          "Amount": 6145.24,
-          "Budgeted Amount": 6145.24,
-      },
-      {
-          "Date": "2026-05-12",
-          "Month": "May",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Health & Fitness",
-          "Sub-Category": "Supplements",
-          "Particulars": "Sprint Fit Online",
-          "Payment Type": "Visa Debit (VD)",
-          "Amount": 125.00,
-          "Budgeted Amount": 120.00,
-      },
-      {
-          "Date": "2026-05-05",
-          "Month": "May",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Income",
-          "Sub-Category": "Salary / Wages",
-          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
-          "Payment Type": "Direct Credit (DC)",
-          "Amount": -1200.00,
-          "Budgeted Amount": 0.00,
-      },
-      {
-          "Date": "2026-05-19",
-          "Month": "May",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Income",
-          "Sub-Category": "Salary / Wages",
-          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
-          "Payment Type": "Direct Credit (DC)",
-          "Amount": -1136.87,
-          "Budgeted Amount": 0.00,
-      },
-      # JUNE
-      {
-          "Date": "2026-06-01",
-          "Month": "June",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Insurance",
-          "Sub-Category": "Asset/Other Insurance",
-          "Particulars": "TOWER Insurance 810131660",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 17.67,
-          "Budgeted Amount": 25.00,
-      },
-      {
-          "Date": "2026-06-03",
-          "Month": "June",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Lump-Sum Principal",
-          "Particulars": "Extra Principal Transfer",
-          "Payment Type": "Bank Transfer",
-          "Amount": 30851.24,
-          "Budgeted Amount": 0.00,
-      },
-      {
-          "Date": "2026-06-03",
-          "Month": "June",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Mortgage / Loans",
-          "Particulars": "HOUSING LOAN 892391890003",
-          "Payment Type": "Loan Repayment (LR)",
-          "Amount": 6145.24,
-          "Budgeted Amount": 6145.24,
-      },
-      {
-          "Date": "2026-06-20",
-          "Month": "June",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Shopping",
-          "Sub-Category": "Electronics",
-          "Particulars": "PB Tech Hamilton",
-          "Payment Type": "Visa Debit (VD)",
-          "Amount": 450.00,
-          "Budgeted Amount": 300.00,
-      },
-      {
-          "Date": "2026-06-05",
-          "Month": "June",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Income",
-          "Sub-Category": "Salary / Wages",
-          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
-          "Payment Type": "Direct Credit (DC)",
-          "Amount": -1095.62,
-          "Budgeted Amount": 0.00,
-      },
-      {
-          "Date": "2026-06-16",
-          "Month": "June",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Income",
-          "Sub-Category": "Salary / Wages",
-          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
-          "Payment Type": "Direct Credit (DC)",
-          "Amount": -1200.00,
-          "Budgeted Amount": 0.00,
-      },
-      # JULY
-      {
-          "Date": "2026-07-01",
-          "Month": "July",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Insurance",
-          "Sub-Category": "Asset/Other Insurance",
-          "Particulars": "TOWER Insurance 810131660",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 17.67,
-          "Budgeted Amount": 25.00,
-      },
-      {
-          "Date": "2026-07-01",
-          "Month": "July",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Council / Rates",
-          "Particulars": "HCC 1Sandal25174 1Sandal",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 72.25,
-          "Budgeted Amount": 72.25,
-      },
-      {
-          "Date": "2026-07-06",
-          "Month": "July",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Mortgage / Loans",
-          "Particulars": "HOUSING LOAN 892391890003",
-          "Payment Type": "Loan Repayment (LR)",
-          "Amount": 6145.24,
-          "Budgeted Amount": 6145.24,
-      },
-      {
-          "Date": "2026-07-14",
-          "Month": "July",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Dining & Entertainment",
-          "Sub-Category": "Takeaways",
-          "Particulars": "Thai Aroma Hamilton",
-          "Payment Type": "Visa Debit (VD)",
-          "Amount": 65.00,
-          "Budgeted Amount": 60.00,
-      },
-      {
-          "Date": "2026-07-07",
-          "Month": "July",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Income",
-          "Sub-Category": "Salary / Wages",
-          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
-          "Payment Type": "Direct Credit (DC)",
-          "Amount": -1165.67,
-          "Budgeted Amount": 0.00,
-      },
-      {
-          "Date": "2026-07-21",
-          "Month": "July",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Income",
-          "Sub-Category": "Salary / Wages",
-          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
-          "Payment Type": "Direct Credit (DC)",
-          "Amount": -1167.95,
-          "Budgeted Amount": 0.00,
-      },
-      # AUGUST
-      {
-          "Date": "2026-08-01",
-          "Month": "August",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Insurance",
-          "Sub-Category": "Asset/Other Insurance",
-          "Particulars": "TOWER Insurance 810131660",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 17.67,
-          "Budgeted Amount": 25.00,
-      },
-      {
-          "Date": "2026-08-01",
-          "Month": "August",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Council / Rates",
-          "Particulars": "HCC 1Sandal25174 1Sandal",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 72.25,
-          "Budgeted Amount": 72.25,
-      },
-      {
-          "Date": "2026-08-04",
-          "Month": "August",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Mortgage / Loans",
-          "Particulars": "HOUSING LOAN 892391890003",
-          "Payment Type": "Loan Repayment (LR)",
-          "Amount": 6145.24,
-          "Budgeted Amount": 6145.24,
-      },
-      {
-          "Date": "2026-08-11",
-          "Month": "August",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Shopping",
-          "Sub-Category": "DIY & Tools",
-          "Particulars": "Purpose Fill Skip Bin Hire",
-          "Payment Type": "Visa Debit (VD)",
-          "Amount": 280.00,
-          "Budgeted Amount": 250.00,
-      },
-      {
-          "Date": "2026-08-04",
-          "Month": "August",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Income",
-          "Sub-Category": "Salary / Wages",
-          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
-          "Payment Type": "Direct Credit (DC)",
-          "Amount": -1182.87,
-          "Budgeted Amount": 0.00,
-      },
-      {
-          "Date": "2026-08-18",
-          "Month": "August",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Income",
-          "Sub-Category": "Salary / Wages",
-          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
-          "Payment Type": "Direct Credit (DC)",
-          "Amount": -1118.05,
-          "Budgeted Amount": 0.00,
-      },
-      # SEPTEMBER
-      {
-          "Date": "2026-09-01",
-          "Month": "September",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Insurance",
-          "Sub-Category": "Asset/Other Insurance",
-          "Particulars": "TOWER Insurance 810131660",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 17.67,
-          "Budgeted Amount": 25.00,
-      },
-      {
-          "Date": "2026-09-01",
-          "Month": "September",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Council / Rates",
-          "Particulars": "HCC 1Sandal25174 1Sandal",
-          "Payment Type": "Direct Debit (DD)",
-          "Amount": 72.25,
-          "Budgeted Amount": 72.25,
-      },
-      {
-          "Date": "2026-09-02",
-          "Month": "September",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Housing",
-          "Sub-Category": "Mortgage / Loans",
-          "Particulars": "HOUSING LOAN 892391890003",
-          "Payment Type": "Loan Repayment (LR)",
-          "Amount": 6145.24,
-          "Budgeted Amount": 6145.24,
-      },
-      {
-          "Date": "2026-09-10",
-          "Month": "September",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Dining & Entertainment",
-          "Sub-Category": "Restaurants",
-          "Particulars": "Whang Thai 2 Tom Yum",
-          "Payment Type": "Visa Debit (VD)",
-          "Amount": 54.00,
-          "Budgeted Amount": 50.00,
-      },
-      {
-          "Date": "2026-09-03",
-          "Month": "September",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Income",
-          "Sub-Category": "Salary / Wages",
-          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
-          "Payment Type": "Direct Credit (DC)",
-          "Amount": -1150.00,
-          "Budgeted Amount": 0.00,
-      },
-      {
-          "Date": "2026-09-17",
-          "Month": "September",
-          "Account Source": "BNZ Joint Billing Account",
-          "Category": "Income",
-          "Sub-Category": "Salary / Wages",
-          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
-          "Payment Type": "Direct Credit (DC)",
-          "Amount": -1100.00,
           "Budgeted Amount": 0.00,
       },
   ]
@@ -787,30 +173,6 @@ with tab_jb1:
       )
       st.plotly_chart(fig_jb_bar, use_container_width=True)
 
-  st.markdown("---")
-  st.subheader(
-      "🔍 Joint Billing Other Expenses (Excl. Housing, Insurance, Utilities)"
-  )
-  df_jb_other = df_jb_outflows[
-      ~df_jb_outflows["Category"].isin(["Housing", "Insurance", "Utilities"])
-  ]
-  if not df_jb_other.empty:
-    monthly_jb_other = (
-        df_jb_other.groupby(["Month", "Category"], observed=False)["Amount"]
-        .sum()
-        .reset_index()
-    )
-    fig_jb_other = px.bar(
-        monthly_jb_other,
-        x="Month",
-        y="Amount",
-        color="Category",
-        title="Other Expenses (Joint Billing)",
-        barmode="stack",
-        text_auto="$",
-    )
-    st.plotly_chart(fig_jb_other, use_container_width=True)
-
 with tab_jb2:
   st.dataframe(df_jb_filtered, use_container_width=True)
 
@@ -839,7 +201,7 @@ st.markdown("---")
 st.markdown("---")
 
 # ==========================================
-# PART 2: EVERYDAY ACCOUNT (NEW SEPARATE SECTION)
+# PART 2: EVERYDAY ACCOUNT (WITH FULL TRANSACTIONS GRAPH)
 # ==========================================
 st.header("💳 Everyday Account (Separate Transactions)")
 
@@ -863,11 +225,9 @@ if ev_uploaded_file is not None:
     st.sidebar.error(f"Error reading file: {e}")
 
 if df_ev is None:
-  # Default sample data for Everyday Account based on user's recent statement export
   data_ev = [
       {
-          "Date": "2025-09-24",
-          "Month": "September",
+          "Date": "24/09/2025",
           "Payee": "Amanda Lee Vasea",
           "Particulars": "INTERNET XFR",
           "Tran Type": "FT",
@@ -875,8 +235,7 @@ if df_ev is None:
           "Category": "Transfers",
       },
       {
-          "Date": "2025-09-25",
-          "Month": "September",
+          "Date": "25/09/2025",
           "Payee": "Pet N Sur",
           "Particulars": "PetnSur Astro",
           "Tran Type": "DD",
@@ -884,8 +243,7 @@ if df_ev is None:
           "Category": "Insurance",
       },
       {
-          "Date": "2025-09-26",
-          "Month": "September",
+          "Date": "26/09/2025",
           "Payee": "GOCARDLESS",
           "Particulars": "IRONHOUSEGYM",
           "Tran Type": "DD",
@@ -893,37 +251,18 @@ if df_ev is None:
           "Category": "Health & Fitness",
       },
       {
-          "Date": "2025-09-26",
-          "Month": "September",
+          "Date": "26/09/2025",
           "Payee": "AMANDA VASEA",
           "Particulars": "DISHONOUR-03",
           "Tran Type": "DC",
           "Amount": 52.00,
           "Category": "Income",
       },
-      {
-          "Date": "2025-10-03",
-          "Month": "October",
-          "Payee": "GOCARDLESS",
-          "Particulars": "IRONHOUSEGYM",
-          "Tran Type": "DD",
-          "Amount": -20.00,
-          "Category": "Health & Fitness",
-      },
-      {
-          "Date": "2025-10-08",
-          "Month": "October",
-          "Payee": "Amanda Lee Vasea",
-          "Particulars": "INTERNET XFR",
-          "Tran Type": "FT",
-          "Amount": 70.00,
-          "Category": "Transfers",
-      },
   ]
   df_ev = pd.DataFrame(data_ev)
 
-# Standardize Everyday Account columns if uploaded from raw bank CSV
-if "Date" in df_ev.columns and "Month" not in df_ev.columns:
+# Standardize Everyday Account columns
+if "Date" in df_ev.columns:
   df_ev["Date_Parsed"] = pd.to_datetime(
       df_ev["Date"], format="%d/%m/%Y", errors="coerce"
   )
@@ -954,7 +293,7 @@ available_ev_months = [
         "August",
         "September",
     ]
-    if m in df_ev["Month"].dropna().unique()
+    if "Month" in df_ev.columns and m in df_ev["Month"].dropna().unique()
 ]
 ev_month = ev_col1.selectbox(
     "Filter Everyday Account Month:",
@@ -973,7 +312,7 @@ ev_particulars = ev_col2.selectbox(
 )
 
 df_ev_filtered = df_ev.copy()
-if ev_month != "All Months (Overview)":
+if ev_month != "All Months (Overview)" and "Month" in df_ev_filtered.columns:
   df_ev_filtered = df_ev_filtered[df_ev_filtered["Month"] == ev_month]
 if ev_particulars != "Show All Transactions":
   df_ev_filtered = df_ev_filtered[df_ev_filtered["Particulars"] == ev_particulars]
@@ -987,22 +326,40 @@ ek1.metric(
 ek2.metric(label="📑 Total Everyday Transactions", value=len(df_ev_filtered))
 
 tab_ev1, tab_ev2 = st.tabs([
-    "📈 Visual Analytics (Everyday Account)",
-    "📋 Ledger (Everyday Account)",
+    "📋 Ledger & Transaction Table",
+    "📈 Visual Analytics & All Transactions Graph",
 ])
 
 with tab_ev1:
-  if not df_ev_filtered.empty and "Category" in df_ev_filtered.columns:
-    fig_ev_pie = px.pie(
-        df_ev_filtered,
-        names="Category",
-        values="Amount",
-        hole=0.4,
-        title="Everyday Account Breakdown by Category",
-    )
-    st.plotly_chart(fig_ev_pie, use_container_width=True)
-  else:
-    st.info("No data available for Everyday Account visualization.")
+  st.dataframe(df_ev_filtered, use_container_width=True)
 
 with tab_ev2:
-  st.dataframe(df_ev_filtered, use_container_width=True)
+  if not df_ev_filtered.empty:
+    fig_ev_pie = px.pie(
+        df_ev_filtered,
+        names="Payee" if "Payee" in df_ev_filtered.columns else "Category",
+        values="Amount",
+        hole=0.4,
+        title="Everyday Account Breakdown by Payee / Category",
+    )
+    st.plotly_chart(fig_ev_pie, use_container_width=True)
+
+    st.markdown("---")
+    st.subheader("📊 Everyday Account All Transactions Timeline")
+
+    # Ensure Date is sorted for the timeline chart
+    if "Date_Parsed" in df_ev_filtered.columns:
+      df_sorted = df_ev_filtered.sort_values("Date_Parsed")
+      fig_timeline = px.bar(
+          df_sorted,
+          x="Date_Parsed",
+          y="Amount",
+          color=(
+              "Payee" if "Payee" in df_sorted.columns else "Tran Type"
+          ),
+          title="All Transactions over Time (Everyday Account)",
+          hover_data=["Particulars", "Amount", "Tran Type"],
+      )
+      st.plotly_chart(fig_timeline, use_container_width=True)
+  else:
+    st.info("No data available for Everyday Account visualization.")
