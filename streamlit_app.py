@@ -13,7 +13,7 @@ st.title(
 )
 st.markdown(
     "Complete itemized transaction ledger with custom **CSV/Excel file upload**"
-    " support, accurate variable salary inflows, and monthly spending/budget"
+    " support, accurate variable salary inflows, and stacked monthly expense"
     " tracking."
 )
 
@@ -110,6 +110,39 @@ if df is None:
           "Budgeted Amount": 25.00,
       },
       {
+          "Date": "2026-02-01",
+          "Month": "February",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Council / Rates",
+          "Particulars": "HCC 1Sandal25174 1Sandal",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 72.25,
+          "Budgeted Amount": 72.25,
+      },
+      {
+          "Date": "2026-02-05",
+          "Month": "February",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Mortgage / Loans",
+          "Particulars": "HOUSING LOAN 892391890003",
+          "Payment Type": "Loan Repayment (LR)",
+          "Amount": 6145.24,
+          "Budgeted Amount": 6145.24,
+      },
+      {
+          "Date": "2026-02-08",
+          "Month": "February",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Utilities",
+          "Sub-Category": "Power & Energy",
+          "Particulars": "POWERSHOP Powershop 904059741",
+          "Payment Type": "Auto-Payment (AP)",
+          "Amount": 175.00,
+          "Budgeted Amount": 175.00,
+      },
+      {
           "Date": "2026-02-03",
           "Month": "February",
           "Account Source": "BNZ Joint Billing Account",
@@ -142,6 +175,39 @@ if df is None:
           "Payment Type": "Direct Debit (DD)",
           "Amount": 17.67,
           "Budgeted Amount": 25.00,
+      },
+      {
+          "Date": "2026-03-01",
+          "Month": "March",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Council / Rates",
+          "Particulars": "HCC 1Sandal25174 1Sandal",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 72.25,
+          "Budgeted Amount": 72.25,
+      },
+      {
+          "Date": "2026-03-05",
+          "Month": "March",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Mortgage / Loans",
+          "Particulars": "HOUSING LOAN 892391890003",
+          "Payment Type": "Loan Repayment (LR)",
+          "Amount": 6145.24,
+          "Budgeted Amount": 6145.24,
+      },
+      {
+          "Date": "2026-03-09",
+          "Month": "March",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Utilities",
+          "Sub-Category": "Power & Energy",
+          "Particulars": "POWERSHOP Powershop 904059741",
+          "Payment Type": "Auto-Payment (AP)",
+          "Amount": 175.00,
+          "Budgeted Amount": 175.00,
       },
       {
           "Date": "2026-03-02",
@@ -189,6 +255,28 @@ if df is None:
           "Budgeted Amount": 25.00,
       },
       {
+          "Date": "2026-04-01",
+          "Month": "April",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Council / Rates",
+          "Particulars": "HCC 1Sandal25174 1Sandal",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 72.25,
+          "Budgeted Amount": 72.25,
+      },
+      {
+          "Date": "2026-04-02",
+          "Month": "April",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Mortgage / Loans",
+          "Particulars": "HOUSING LOAN 892391890003",
+          "Payment Type": "Loan Repayment (LR)",
+          "Amount": 6145.24,
+          "Budgeted Amount": 6145.24,
+      },
+      {
           "Date": "2026-04-07",
           "Month": "April",
           "Account Source": "BNZ Joint Billing Account",
@@ -221,6 +309,28 @@ if df is None:
           "Payment Type": "Direct Debit (DD)",
           "Amount": 17.67,
           "Budgeted Amount": 25.00,
+      },
+      {
+          "Date": "2026-05-01",
+          "Month": "May",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Council / Rates",
+          "Particulars": "HCC 1Sandal25174 1Sandal",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 72.25,
+          "Budgeted Amount": 72.25,
+      },
+      {
+          "Date": "2026-05-04",
+          "Month": "May",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Mortgage / Loans",
+          "Particulars": "HOUSING LOAN 892391890003",
+          "Payment Type": "Loan Repayment (LR)",
+          "Amount": 6145.24,
+          "Budgeted Amount": 6145.24,
       },
       {
           "Date": "2026-05-05",
@@ -268,6 +378,17 @@ if df is None:
           "Budgeted Amount": 0.00,
       },
       {
+          "Date": "2026-06-03",
+          "Month": "June",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Mortgage / Loans",
+          "Particulars": "HOUSING LOAN 892391890003",
+          "Payment Type": "Loan Repayment (LR)",
+          "Amount": 6145.24,
+          "Budgeted Amount": 6145.24,
+      },
+      {
           "Date": "2026-06-05",
           "Month": "June",
           "Account Source": "BNZ Joint Billing Account",
@@ -300,6 +421,28 @@ if df is None:
           "Payment Type": "Direct Debit (DD)",
           "Amount": 17.67,
           "Budgeted Amount": 25.00,
+      },
+      {
+          "Date": "2026-07-01",
+          "Month": "July",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Council / Rates",
+          "Particulars": "HCC 1Sandal25174 1Sandal",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 72.25,
+          "Budgeted Amount": 72.25,
+      },
+      {
+          "Date": "2026-07-06",
+          "Month": "July",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Mortgage / Loans",
+          "Particulars": "HOUSING LOAN 892391890003",
+          "Payment Type": "Loan Repayment (LR)",
+          "Amount": 6145.24,
+          "Budgeted Amount": 6145.24,
       },
       {
           "Date": "2026-07-07",
@@ -336,6 +479,28 @@ if df is None:
           "Budgeted Amount": 25.00,
       },
       {
+          "Date": "2026-08-01",
+          "Month": "August",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Council / Rates",
+          "Particulars": "HCC 1Sandal25174 1Sandal",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 72.25,
+          "Budgeted Amount": 72.25,
+      },
+      {
+          "Date": "2026-08-04",
+          "Month": "August",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Mortgage / Loans",
+          "Particulars": "HOUSING LOAN 892391890003",
+          "Payment Type": "Loan Repayment (LR)",
+          "Amount": 6145.24,
+          "Budgeted Amount": 6145.24,
+      },
+      {
           "Date": "2026-08-04",
           "Month": "August",
           "Account Source": "BNZ Joint Billing Account",
@@ -370,6 +535,28 @@ if df is None:
           "Budgeted Amount": 25.00,
       },
       {
+          "Date": "2026-09-01",
+          "Month": "September",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Council / Rates",
+          "Particulars": "HCC 1Sandal25174 1Sandal",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 72.25,
+          "Budgeted Amount": 72.25,
+      },
+      {
+          "Date": "2026-09-02",
+          "Month": "September",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Mortgage / Loans",
+          "Particulars": "HOUSING LOAN 892391890003",
+          "Payment Type": "Loan Repayment (LR)",
+          "Amount": 6145.24,
+          "Budgeted Amount": 6145.24,
+      },
+      {
           "Date": "2026-09-03",
           "Month": "September",
           "Account Source": "BNZ Joint Billing Account",
@@ -402,7 +589,6 @@ if "Category" not in df.columns:
 if "Sub-Category" not in df.columns:
   df["Sub-Category"] = "Miscellaneous"
 if "Particulars" not in df.columns:
-  # Try to find a text column
   text_cols = df.select_dtypes(include=["object"]).columns
   df["Particulars"] = (
       df[text_cols[0]] if len(text_cols) > 0 else "Transaction"
@@ -439,11 +625,6 @@ df = df.sort_values("Month" if "Month" in df.columns else df.columns[0])
 
 # Sidebar Filters
 st.sidebar.markdown("---")
-available_months = (
-    list(df["Month"].dropna().unique())
-    if "Month" in df.columns
-    else month_order
-)
 selected_month = st.sidebar.selectbox(
     "Select Month:", ["All Months (Overview)"] + month_order
 )
@@ -529,17 +710,20 @@ with tab1:
   with col2:
     if selected_focus == "Show All Transactions":
       if selected_month == "All Months (Overview)":
-        monthly_summary = (
-            df_outflows.groupby("Month", observed=False)["Amount"]
+        # STACKED BAR CHART BY MONTH & CATEGORY
+        monthly_cat_summary = (
+            df_outflows.groupby(["Month", "Category"], observed=False)["Amount"]
             .sum()
             .reset_index()
         )
         fig_bar = px.bar(
-            monthly_summary,
+            monthly_cat_summary,
             x="Month",
             y="Amount",
-            title="Total Outflows by Month",
+            color="Category",
+            title="Total Outflows by Month & Category",
             text_auto="$",
+            barmode="stack",
         )
         st.plotly_chart(fig_bar, use_container_width=True)
       else:
