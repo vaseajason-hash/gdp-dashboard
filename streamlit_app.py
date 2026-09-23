@@ -13,8 +13,8 @@ st.title(
 )
 st.markdown(
     "Complete itemized transaction ledger with custom **CSV/Excel file upload**"
-    " support, accurate variable salary inflows, and stacked monthly expense"
-    " tracking."
+    " support, stacked monthly expenses, and a dedicated secondary chart for"
+    " non-housing/insurance/utilities spending."
 )
 
 # --- CSV / EXCEL FILE UPLOADER IN SIDEBAR ---
@@ -63,6 +63,28 @@ if df is None:
           "Payment Type": "Direct Debit (DD)",
           "Amount": 72.25,
           "Budgeted Amount": 72.25,
+      },
+      {
+          "Date": "2026-01-10",
+          "Month": "January",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Groceries",
+          "Sub-Category": "Supermarket",
+          "Particulars": "PAK'nSAVE Hamilton",
+          "Payment Type": "Eftpos (EF)",
+          "Amount": 245.80,
+          "Budgeted Amount": 250.00,
+      },
+      {
+          "Date": "2026-01-15",
+          "Month": "January",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Dining & Entertainment",
+          "Sub-Category": "Restaurants",
+          "Particulars": "Whang Thai 2 Pad Thai",
+          "Payment Type": "Visa Debit (VD)",
+          "Amount": 48.50,
+          "Budgeted Amount": 50.00,
       },
       {
           "Date": "2026-01-06",
@@ -143,6 +165,17 @@ if df is None:
           "Budgeted Amount": 175.00,
       },
       {
+          "Date": "2026-02-12",
+          "Month": "February",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Groceries",
+          "Sub-Category": "Supermarket",
+          "Particulars": "Countdown Te Rapa",
+          "Payment Type": "Eftpos (EF)",
+          "Amount": 210.40,
+          "Budgeted Amount": 220.00,
+      },
+      {
           "Date": "2026-02-03",
           "Month": "February",
           "Account Source": "BNZ Joint Billing Account",
@@ -208,6 +241,17 @@ if df is None:
           "Payment Type": "Auto-Payment (AP)",
           "Amount": 175.00,
           "Budgeted Amount": 175.00,
+      },
+      {
+          "Date": "2026-03-14",
+          "Month": "March",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Shopping",
+          "Sub-Category": "Hardware / Tools",
+          "Particulars": "Bunnings Warehouse Te Rapa",
+          "Payment Type": "Visa Debit (VD)",
+          "Amount": 134.90,
+          "Budgeted Amount": 100.00,
       },
       {
           "Date": "2026-03-02",
@@ -277,6 +321,17 @@ if df is None:
           "Budgeted Amount": 6145.24,
       },
       {
+          "Date": "2026-04-18",
+          "Month": "April",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Groceries",
+          "Sub-Category": "Supermarket",
+          "Particulars": "The Warehouse Dinsdale",
+          "Payment Type": "Visa Debit (VD)",
+          "Amount": 88.30,
+          "Budgeted Amount": 90.00,
+      },
+      {
           "Date": "2026-04-07",
           "Month": "April",
           "Account Source": "BNZ Joint Billing Account",
@@ -331,6 +386,17 @@ if df is None:
           "Payment Type": "Loan Repayment (LR)",
           "Amount": 6145.24,
           "Budgeted Amount": 6145.24,
+      },
+      {
+          "Date": "2026-05-12",
+          "Month": "May",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Health & Fitness",
+          "Sub-Category": "Supplements",
+          "Particulars": "Sprint Fit Online",
+          "Payment Type": "Visa Debit (VD)",
+          "Amount": 125.00,
+          "Budgeted Amount": 120.00,
       },
       {
           "Date": "2026-05-05",
@@ -389,6 +455,17 @@ if df is None:
           "Budgeted Amount": 6145.24,
       },
       {
+          "Date": "2026-06-20",
+          "Month": "June",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Shopping",
+          "Sub-Category": "Electronics",
+          "Particulars": "PB Tech Hamilton",
+          "Payment Type": "Visa Debit (VD)",
+          "Amount": 450.00,
+          "Budgeted Amount": 300.00,
+      },
+      {
           "Date": "2026-06-05",
           "Month": "June",
           "Account Source": "BNZ Joint Billing Account",
@@ -443,6 +520,17 @@ if df is None:
           "Payment Type": "Loan Repayment (LR)",
           "Amount": 6145.24,
           "Budgeted Amount": 6145.24,
+      },
+      {
+          "Date": "2026-07-14",
+          "Month": "July",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Dining & Entertainment",
+          "Sub-Category": "Takeaways",
+          "Particulars": "Thai Aroma Hamilton",
+          "Payment Type": "Visa Debit (VD)",
+          "Amount": 65.00,
+          "Budgeted Amount": 60.00,
       },
       {
           "Date": "2026-07-07",
@@ -501,6 +589,17 @@ if df is None:
           "Budgeted Amount": 6145.24,
       },
       {
+          "Date": "2026-08-11",
+          "Month": "August",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Shopping",
+          "Sub-Category": "DIY & Tools",
+          "Particulars": "Purpose Fill Skip Bin Hire",
+          "Payment Type": "Visa Debit (VD)",
+          "Amount": 280.00,
+          "Budgeted Amount": 250.00,
+      },
+      {
           "Date": "2026-08-04",
           "Month": "August",
           "Account Source": "BNZ Joint Billing Account",
@@ -555,6 +654,17 @@ if df is None:
           "Payment Type": "Loan Repayment (LR)",
           "Amount": 6145.24,
           "Budgeted Amount": 6145.24,
+      },
+      {
+          "Date": "2026-09-10",
+          "Month": "September",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Dining & Entertainment",
+          "Sub-Category": "Restaurants",
+          "Particulars": "Whang Thai 2 Tom Yum",
+          "Payment Type": "Visa Debit (VD)",
+          "Amount": 54.00,
+          "Budgeted Amount": 50.00,
       },
       {
           "Date": "2026-09-03",
@@ -710,7 +820,7 @@ with tab1:
   with col2:
     if selected_focus == "Show All Transactions":
       if selected_month == "All Months (Overview)":
-        # STACKED BAR CHART BY MONTH & CATEGORY
+        # STACKED BAR CHART 1: ALL OUTFLOWS BY MONTH & CATEGORY
         monthly_cat_summary = (
             df_outflows.groupby(["Month", "Category"], observed=False)["Amount"]
             .sum()
@@ -721,7 +831,7 @@ with tab1:
             x="Month",
             y="Amount",
             color="Category",
-            title="Total Outflows by Month & Category",
+            title="Total Outflows by Month & Category (All Expenses)",
             text_auto="$",
             barmode="stack",
         )
@@ -752,6 +862,45 @@ with tab1:
           text_auto="$",
       )
       st.plotly_chart(fig_bar, use_container_width=True)
+
+  st.markdown("---")
+  st.subheader(
+      "🔍 Secondary Breakdown: Other Expenses (Excluding Housing, Insurance &"
+      " Utilities)"
+  )
+
+  # FILTER OUT HOUSING, INSURANCE, AND UTILITIES FOR SECOND CHART
+  excluded_categories = ["Housing", "Insurance", "Utilities"]
+  df_other_expenses = df_outflows[
+      ~df_outflows["Category"].isin(excluded_categories)
+  ]
+
+  if not df_other_expenses.empty:
+    other_monthly_summary = (
+        df_other_expenses.groupby(["Month", "Category"], observed=False)[
+            "Amount"
+        ]
+        .sum()
+        .reset_index()
+    )
+    fig_bar_other = px.bar(
+        other_monthly_summary,
+        x="Month",
+        y="Amount",
+        color="Category",
+        title=(
+            "Other Expenses by Month & Category (Excl. Housing, Insurance,"
+            " Utilities)"
+        ),
+        text_auto="$",
+        barmode="stack",
+    )
+    st.plotly_chart(fig_bar_other, use_container_width=True)
+  else:
+    st.info(
+        "No other expenses found outside of Housing, Insurance, and Utilities for"
+        " this selection."
+    )
 
 with tab2:
   st.dataframe(df_filtered, use_container_width=True)
