@@ -16,7 +16,7 @@ st.markdown(
 )
 
 # ==========================================
-# PART 1: BNZ JOINT BILLING ACCOUNT
+# PART 1: BNZ JOINT BILLING ACCOUNT (ISOLATED)
 # ==========================================
 st.header("🏠 BNZ Joint Billing Account (02-0316-0685464-000)")
 
@@ -24,7 +24,7 @@ st.sidebar.header("📁 Joint Billing Data Source")
 jb_uploaded_file = st.sidebar.file_uploader(
     "Upload CSV/Excel for Joint Billing Account",
     type=["csv", "xlsx", "xls"],
-    key="jb_upload",
+    key="jb_file_uploader_unique",
 )
 
 df_jb = None
@@ -34,9 +34,9 @@ if jb_uploaded_file is not None:
       df_jb = pd.read_csv(jb_uploaded_file)
     else:
       df_jb = pd.read_excel(jb_uploaded_file)
-    st.sidebar.success("Joint Billing custom file loaded successfully!")
+    st.sidebar.success("Joint Billing file loaded successfully!")
   except Exception as e:
-    st.sidebar.error(f"Error reading file: {e}")
+    st.sidebar.error(f"Error reading Joint Billing file: {e}")
 
 if df_jb is None:
   data_jb = [
@@ -63,8 +63,118 @@ if df_jb is None:
           "Budgeted Amount": 72.25,
       },
       {
+          "Date": "2026-01-10",
+          "Month": "January",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Groceries",
+          "Sub-Category": "Supermarket",
+          "Particulars": "PAK'nSAVE Hamilton",
+          "Payment Type": "Eftpos (EF)",
+          "Amount": 245.80,
+          "Budgeted Amount": 250.00,
+      },
+      {
+          "Date": "2026-01-15",
+          "Month": "January",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Dining & Entertainment",
+          "Sub-Category": "Restaurants",
+          "Particulars": "Whang Thai 2 Pad Thai",
+          "Payment Type": "Visa Debit (VD)",
+          "Amount": 48.50,
+          "Budgeted Amount": 50.00,
+      },
+      {
           "Date": "2026-01-06",
           "Month": "January",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Income",
+          "Sub-Category": "Salary / Wages",
+          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
+          "Payment Type": "Direct Credit (DC)",
+          "Amount": -1116.87,
+          "Budgeted Amount": 0.00,
+      },
+      {
+          "Date": "2026-01-13",
+          "Month": "January",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Income",
+          "Sub-Category": "Salary / Wages",
+          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
+          "Payment Type": "Direct Credit (DC)",
+          "Amount": -1121.05,
+          "Budgeted Amount": 0.00,
+      },
+      {
+          "Date": "2026-01-22",
+          "Month": "January",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Income",
+          "Sub-Category": "Salary / Wages",
+          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
+          "Payment Type": "Direct Credit (DC)",
+          "Amount": -1087.52,
+          "Budgeted Amount": 0.00,
+      },
+      {
+          "Date": "2026-02-01",
+          "Month": "February",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Insurance",
+          "Sub-Category": "Asset/Other Insurance",
+          "Particulars": "TOWER Insurance 810131660",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 17.67,
+          "Budgeted Amount": 25.00,
+      },
+      {
+          "Date": "2026-02-01",
+          "Month": "February",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Council / Rates",
+          "Particulars": "HCC 1Sandal25174 1Sandal",
+          "Payment Type": "Direct Debit (DD)",
+          "Amount": 72.25,
+          "Budgeted Amount": 72.25,
+      },
+      {
+          "Date": "2026-02-05",
+          "Month": "February",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Housing",
+          "Sub-Category": "Mortgage / Loans",
+          "Particulars": "HOUSING LOAN 892391890003",
+          "Payment Type": "Loan Repayment (LR)",
+          "Amount": 6145.24,
+          "Budgeted Amount": 6145.24,
+      },
+      {
+          "Date": "2026-02-08",
+          "Month": "February",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Utilities",
+          "Sub-Category": "Power & Energy",
+          "Particulars": "POWERSHOP Powershop 904059741",
+          "Payment Type": "Auto-Payment (AP)",
+          "Amount": 175.00,
+          "Budgeted Amount": 175.00,
+      },
+      {
+          "Date": "2026-02-03",
+          "Month": "February",
+          "Account Source": "BNZ Joint Billing Account",
+          "Category": "Income",
+          "Sub-Category": "Salary / Wages",
+          "Particulars": "AFFINITY EMPL GWF PAY MAURI HAMILT VASEA. JASON",
+          "Payment Type": "Direct Credit (DC)",
+          "Amount": -1116.87,
+          "Budgeted Amount": 0.00,
+      },
+      {
+          "Date": "2026-02-12",
+          "Month": "February",
           "Account Source": "BNZ Joint Billing Account",
           "Category": "Income",
           "Sub-Category": "Salary / Wages",
@@ -173,6 +283,30 @@ with tab_jb1:
       )
       st.plotly_chart(fig_jb_bar, use_container_width=True)
 
+  st.markdown("---")
+  st.subheader(
+      "🔍 Joint Billing Other Expenses (Excl. Housing, Insurance, Utilities)"
+  )
+  df_jb_other = df_jb_outflows[
+      ~df_jb_outflows["Category"].isin(["Housing", "Insurance", "Utilities"])
+  ]
+  if not df_jb_other.empty:
+    monthly_jb_other = (
+        df_jb_other.groupby(["Month", "Category"], observed=False)["Amount"]
+        .sum()
+        .reset_index()
+    )
+    fig_jb_other = px.bar(
+        monthly_jb_other,
+        x="Month",
+        y="Amount",
+        color="Category",
+        title="Other Expenses (Joint Billing)",
+        barmode="stack",
+        text_auto="$",
+    )
+    st.plotly_chart(fig_jb_other, use_container_width=True)
+
 with tab_jb2:
   st.dataframe(df_jb_filtered, use_container_width=True)
 
@@ -201,7 +335,7 @@ st.markdown("---")
 st.markdown("---")
 
 # ==========================================
-# PART 2: EVERYDAY ACCOUNT (WITH FULL TRANSACTIONS GRAPH)
+# PART 2: EVERYDAY ACCOUNT (ISOLATED)
 # ==========================================
 st.header("💳 Everyday Account (Separate Transactions)")
 
@@ -210,7 +344,7 @@ st.sidebar.header("📁 Everyday Account Data Source")
 ev_uploaded_file = st.sidebar.file_uploader(
     "Upload CSV/Excel for Everyday Account",
     type=["csv", "xlsx", "xls"],
-    key="ev_upload",
+    key="ev_file_uploader_unique",
 )
 
 df_ev = None
@@ -222,7 +356,7 @@ if ev_uploaded_file is not None:
       df_ev = pd.read_excel(ev_uploaded_file)
     st.sidebar.success("Everyday Account custom file loaded successfully!")
   except Exception as e:
-    st.sidebar.error(f"Error reading file: {e}")
+    st.sidebar.error(f"Error reading Everyday file: {e}")
 
 if df_ev is None:
   data_ev = [
@@ -261,7 +395,7 @@ if df_ev is None:
   ]
   df_ev = pd.DataFrame(data_ev)
 
-# Standardize Everyday Account columns
+# Standardize Everyday Account columns & parse dates
 if "Date" in df_ev.columns:
   df_ev["Date_Parsed"] = pd.to_datetime(
       df_ev["Date"], format="%d/%m/%Y", errors="coerce"
@@ -347,7 +481,6 @@ with tab_ev2:
     st.markdown("---")
     st.subheader("📊 Everyday Account All Transactions Timeline")
 
-    # Ensure Date is sorted for the timeline chart
     if "Date_Parsed" in df_ev_filtered.columns:
       df_sorted = df_ev_filtered.sort_values("Date_Parsed")
       fig_timeline = px.bar(
